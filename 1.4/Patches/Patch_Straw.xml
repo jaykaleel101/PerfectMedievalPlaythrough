@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationSequence">
+    <operations>        
+      <!-- Add straw as ingredient to make kibble, because it just makes sense -->
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/RecipeDef[defName="Make_Kibble"]/ingredients/li[2]/filter/thingDefs</xpath>
+        <value>
+          <li>DankPyon_Straw</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/RecipeDef[defName="Make_Kibble"]/fixedIngredientFilter/thingDefs</xpath>
+        <value>
+          <li>DankPyon_Straw</li>
+        </value>
+      </li>
+      <!-- Add straw from wheat harvest as a by-product, just 1/square to make it not OP -->
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Wheat"]</xpath>
+        <value>
+      		<modExtensions>
+			<li Class="VanillaPlantsExpanded.DualCropExtension">
+				<secondaryOutput>DankPyon_Straw</secondaryOutput>
+				<outPutAmount>1</outPutAmount>
+			</li>
+            </modExtensions>
+        </value>
+      </li>
+      <!-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood only) -->
+      <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="VFEM_ArcheryTarget"]/costList</xpath>
+            <value>
+                <costList>
+                <WoodLog>4</WoodLog>
+                <DankPyon_Straw>20</DankPyon_Straw>
+                </costList>
+            </value>
+        </li>
+    </operations>
+	</Operation>
+</Patch>
