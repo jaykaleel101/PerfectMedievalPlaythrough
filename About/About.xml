@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Perfect Medieval Playthrough</name>
+	<author>Adamas</author>
+	<packageId>Adamas.PerfectMedievalPlaythrough</packageId>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Dankpyon.Medieval.Overhaul</packageId>
+			<displayName>Medieval Overhaul</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2553700067</steamWorkshopUrl>
+		</li>
+        <li>
+            <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+            <displayName>Vanilla Expanded Framework</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2023507013</steamWorkshopUrl>
+        </li>        
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Dankpyon.Medieval.Overhaul</li>
+	</loadAfter>
+    <loadBefore>
+        <li>Ogam.Rimedieval</li>
+    </loadBefore>    
+	<description>Fixes up a nice blend of Medieval Overhaul and few other mods for a smooth medieval playthrough.</description>
+</ModMetaData>

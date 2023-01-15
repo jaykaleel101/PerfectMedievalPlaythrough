@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- patch Ale to add to ale high, increases work speed -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="DankPyon_Ale"]/ingestible/outcomeDoers</xpath>
+				<value>
+					<li Class="IngestionOutcomeDoer_GiveHediff">
+						<hediffDef>PMP_AleHigh</hediffDef>
+						<severity>0.2</severity>
+					</li>
+				</value>
+			</li>		
+			<!-- patch Ale to add never blightable to garlic, shallot, onoins -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Plant_AYGarlic" or defName="DankPyon_Plant_Garlic" or defName="DankPyon_Plant_Onions"]/plant</xpath>
+				<value>
+					<neverBlightable>true</neverBlightable>
+				</value>
+			</li>		
+		</operations>
+	</Operation>
+</Patch>

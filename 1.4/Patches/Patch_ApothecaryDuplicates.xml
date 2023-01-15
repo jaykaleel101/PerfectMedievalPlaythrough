@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <!-- Replacing Apothecary tallow in all recipes with MO tallow  -->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYTallow"]/li</xpath>
+                <value>
+                    <li>DankPyon_Tallow</li>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/RecipeDef[defName="MakeAYLavenderSoap" or
+                    defName="MakeBulkAYLavenderSoap"]/fixedIngredientFilter/thingDefs</xpath>
+                <value>
+                    <thingDefs>
+                        <li>DankPyon_Tallow</li>
+                        <li>AYLavenderOil</li>
+                        <li>AYPotash</li>
+                        <li>AYLimewater</li>
+                    </thingDefs>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="AYCandle"]/costList/AYTallow</xpath>
+                <value>
+                    <DankPyon_Tallow>20</DankPyon_Tallow>
+                </value>
+            </li>
+            <!-- Remove tallow from meat recipe (Apothecary) since we get it from fat in MO -->
+            <li Class="PatchOperationRemove">
+                <xpath>Defs/RecipeDef[defName = "MakeAYTallow" or defName = "MakeBulkAYTallow"]</xpath>
+            </li>
+            <!-- allow candles of apothecary to be refueled by MO tallow -->
+            <li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="AYCandle"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+                <value>
+                    <thingDefs>
+                        <li>DankPyon_Tallow</li>
+                    </thingDefs>
+                </value>
+            </li>
+
+            <!-- Replacing Apothecary salt in all recipes with MO Salt  -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYSalt"]/li</xpath>
+                <value>
+                    <li>DankPyon_Salt</li>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/RecipeDef/fixedIngredientFilter/thingDefs[li="AYSalt"]/li</xpath>
+                <value>
+                    <li>DankPyon_Salt</li>
+                </value>
+            </li>
+            <li Class="PatchOperationSetName">
+                <xpath>Defs/ThingDef[defName="AYSalt_Bucket"]/costList/AYSalt</xpath>
+                <name>DankPyon_Salt</name>
+            </li>
+            <li Class="PatchOperationSetName">
+                <xpath>Defs/TerrainDef[defName="TileAYPlasterSalt"]/costList/AYSalt</xpath>
+                <name>DankPyon_Salt</name>
+            </li>
+            <li Class="PatchOperationSetName">
+                <xpath>Defs/RecipeDef[defName="MakeAYSalt" or
+                    defName="MakeAYSaltBlocks"]/products/AYSalt</xpath>
+                <name>DankPyon_Salt</name>
+            </li>
+
+            <!-- rename MO garlic to beetroot, so it is different to AY garlic -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/label/text()</xpath>
+                <value>beet</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
+                <value>Raw beet.</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/label/text()</xpath>
+                <value>beet plant</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/description/text()</xpath>
+                <value>Beet. They are used in stews and soups.</value>
+            </li>
+        </operations>
+    </Operation>
+</Patch>

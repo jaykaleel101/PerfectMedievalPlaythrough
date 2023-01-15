@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- Remove VFEM grape and Wine making and add quality to MO wine -->
+			<!-- remove VFEM_Make_Must-->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/RecipeDef[defName="VFEM_Make_Must"]</xpath>
+			</li>
+			<!-- fertilitySensitivity of DankPyon_Plant_Grape to 0.7 -->
+			<!-- remove VFEM_Plant_Grape -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="VFEM_Plant_Grape"]</xpath>
+			</li>
+			<!-- remove process DankPyon_MustIntoWine -->
+			<li Class="PatchOperationRemove">
+				<xpath>
+					Defs/ThingDef[defName="BarrelProcessor"]/comps/li[1]/processes/li[text()="DankPyon_MustIntoWine"]</xpath>
+			</li>
+
+
+			<!-- just change the processor VFE_Wine  to accept  DankPyon_MustWine and return
+			DankPyon_Wine-->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/thingDef</xpath>
+				<value>
+					<thingDef>DankPyon_Wine</thingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>
+					Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/ingredientFilter/thingDefs</xpath>
+				<value>
+					<thingDefs>
+						<li>DankPyon_MustWine</li>
+					</thingDefs>
+				</value>
+			</li>
+			<!-- patch DankPyon_Wine to have quality -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="DankPyon_Wine"]/comps</xpath>
+				<value>
+					<li>
+						<compClass>CompQuality</compClass>
+					</li>
+				</value>
+			</li>
+
+			<!-- Replace MO smoker with VFEM smoker, because it can already smoke fish as well -->
+			<!-- Hide MO smoker -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/designationCategory</xpath>
+			</li>
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/researchPrerequisites</xpath>
+			</li>
+			<!-- Show VFEM smoker -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="VFEM_MeatSmoker"]</xpath>
+				<value>
+					<designationCategory>Production</designationCategory>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VFEM_MeatSmoker"]/researchPrerequisites</xpath>
+				<value>
+					<researchPrerequisites>
+						<li>DankPyon_Smoker</li>
+						<li>DankPyon_RusticFurniture</li>
+					</researchPrerequisites>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>

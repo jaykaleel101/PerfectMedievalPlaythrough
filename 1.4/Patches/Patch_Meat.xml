@@ -1,90 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-    <Operation Class="PatchOperationSequence">
+  <Operation Class="PatchOperationSequence">
     <operations>
-        <!--Dried Meat is now a storage option for raw meat: ratio is 75:75 when drying meat (opposed to 100:9)
+      <!--Dried Meat is now a storage option for raw meat: ratio is 75:75 when drying meat (opposed
+      to 100:9)
         nutrition value is lowered from 0.7 to 0.05(similar to raw meat)
-        but it can of course be used as an ingredient when cooking.
-        The MO Smoker is replaced by the VFEM smoker to make Smoked Meat and Fish 
+        but
+      it can of course be used as an ingredient when cooking.
         -->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]/amount</xpath>
-          <value>
-            <amount>
-              <li>75</li>
-            </amount>
-          </value>
-        </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]/yield</xpath>
-          <value>
-            <yield>75</yield>
-          </value>
-        </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]/amount</xpath>
+        <value>
+          <amount>
+            <li>75</li>
+          </amount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]/yield</xpath>
+        <value>
+          <yield>75</yield>
+        </value>
+      </li>
 
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]</xpath>
-          <value>
-            <disallowedThingDefs>
-              <li>DankPyon_DriedMeat</li>
-              <li>DankPyon_SmokedMeat</li>
-              <li>DankPyon_Sausages</li>
-            </disallowedThingDefs>
-          </value>
-        </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ItemProcessor.CombinationDef[defName ="DankPyon_MeatIntoDriedMeat"]</xpath>
+        <value>
+          <disallowedThingDefs>
+            <li>DankPyon_DriedMeat</li>
+            <li>DankPyon_SmokedMeat</li>
+            <li>DankPyon_Sausages</li>
+          </disallowedThingDefs>
+        </value>
+      </li>
 
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName ="DankPyon_DriedMeat"]</xpath>
-          <value>
-            <ThingDef ParentName="OrganicProductBase">
-              <defName>DankPyon_DriedMeat</defName>
-              <label>Dried Meat</label>
-              <description>Dried meat to preserve and prolong shelf life. Can be used later for cooking.</description>
-              <thingClass>ThingWithComps</thingClass>
-              <thingCategories>
-                <li>Foods</li>
-                <li>MeatRaw</li>
-              </thingCategories>
-              <graphicData>
-                <texPath>Meal/DriedMeat</texPath>
-                <graphicClass>Graphic_StackCount</graphicClass>
-              </graphicData>
-              <socialPropernessMatters>true</socialPropernessMatters>
-              <statBases>
-                <MarketValue>1.4</MarketValue>
-                <Mass>0.018</Mass>
-                <Flammability>0.6</Flammability>
-                <DeteriorationRate>2</DeteriorationRate>
-                <Nutrition>0.05</Nutrition>
-              </statBases>
-              <ingestible>
-                <foodType>Meal</foodType>
-                <preferability>MealAwful</preferability>
-                <ingestSound>Meal_Eat</ingestSound>
-                <optimalityOffsetHumanlikes>6</optimalityOffsetHumanlikes>
-              </ingestible>
-              <comps>
-                <li Class="CompProperties_Rottable">
-                  <daysToRotStart>60</daysToRotStart>
-                  <rotDestroys>true</rotDestroys>
-                </li>
-                <li Class="CompProperties_Ingredients" />
-              </comps>
-            </ThingDef>
-          </value>
-        </li>      
-
-        <!-- Hide MO smoker -->
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/designationCategory</xpath>
-        </li>
-        <!-- Show VFEM smoker -->
-	    <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="VFEM_MeatSmoker"]</xpath>
-		  <value>
-			<designationCategory>Production</designationCategory>
-		  </value>
-	    </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName ="DankPyon_DriedMeat"]</xpath>
+        <value>
+          <ThingDef ParentName="OrganicProductBase">
+            <defName>DankPyon_DriedMeat</defName>
+            <label>Dried Meat</label>
+            <description>Dried meat to preserve and prolong shelf life. Can be used later for
+              cooking.</description>
+            <thingClass>ThingWithComps</thingClass>
+            <thingCategories>
+              <li>Foods</li>
+              <li>MeatRaw</li>
+            </thingCategories>
+            <graphicData>
+              <texPath>Meal/DriedMeat</texPath>
+              <graphicClass>Graphic_StackCount</graphicClass>
+            </graphicData>
+            <socialPropernessMatters>true</socialPropernessMatters>
+            <statBases>
+              <MarketValue>1.4</MarketValue>
+              <Mass>0.018</Mass>
+              <Flammability>0.6</Flammability>
+              <DeteriorationRate>2</DeteriorationRate>
+              <Nutrition>0.05</Nutrition>
+            </statBases>
+            <ingestible>
+              <foodType>Meal</foodType>
+              <preferability>MealAwful</preferability>
+              <ingestSound>Meal_Eat</ingestSound>
+              <optimalityOffsetHumanlikes>6</optimalityOffsetHumanlikes>
+            </ingestible>
+            <comps>
+              <li Class="CompProperties_Rottable">
+                <daysToRotStart>60</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+              </li>
+              <li Class="CompProperties_Ingredients" />
+            </comps>
+          </ThingDef>
+        </value>
+      </li>
     </operations>
-	</Operation>
+  </Operation>
 </Patch>

@@ -1,81 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationSequence">
-    <operations>      
-        <!-- Add recipes CraftingSpot to Workbench -->
-        <li Class="PatchOperationAddModExtension">
-            <xpath>/Defs/ThingDef[defName="DankPyon_Workbench"]</xpath>
-            <value>
-                <li Class="RecipeInheritance.ThingDefExtension">
-                    <inheritRecipesFrom>
-                        <li>CraftingSpot</li>
-                    </inheritRecipesFrom>
-                </li>
-            </value>
-        </li>
+        <operations>
+            <!-- Add recipes CraftingSpot to Workbench -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/ThingDef[defName="DankPyon_Workbench"]</xpath>
+                <value>
+                    <li Class="RecipeInheritance.ThingDefExtension">
+                        <inheritRecipesFrom>
+                            <li>CraftingSpot</li>
+                        </inheritRecipesFrom>
+                    </li>
+                </value>
+            </li>
 
-        <!-- Add recipes of fueld stove -->
-        <li Class="PatchOperationAddModExtension">
-            <xpath>/Defs/ThingDef[defName="DankPyon_RusticCookingTable"]</xpath>
-            <value>
-                <li Class="RecipeInheritance.ThingDefExtension">
-                    <inheritRecipesFrom>
-                        <li>FueledStove</li>
-                    </inheritRecipesFrom>
-                </li>
-            </value>
-        </li>
+            <!-- Add recipes of fueld stove -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/ThingDef[defName="DankPyon_RusticCookingTable"]</xpath>
+                <value>
+                    <li Class="RecipeInheritance.ThingDefExtension">
+                        <inheritRecipesFrom>
+                            <li>FueledStove</li>
+                        </inheritRecipesFrom>
+                    </li>
+                </value>
+            </li>
 
-        <!-- Add recipes from Tailoring Tables to the Tailoring Bench -->
-        <li Class="PatchOperationAddModExtension">
-            <xpath>/Defs/ThingDef[defName="DankPyon_TailorsBench"]</xpath>
-            <value>
-                <li Class="RecipeInheritance.ThingDefExtension">
-                    <inheritRecipesFrom>
-                        <li>HandTailoringBench</li>
-                    </inheritRecipesFrom>
-                </li>
-            </value>
-        </li>      
+            <!-- Add recipes from Tailoring Tables to the Tailoring Bench -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/ThingDef[defName="DankPyon_TailorsBench"]</xpath>
+                <value>
+                    <li Class="RecipeInheritance.ThingDefExtension">
+                        <inheritRecipesFrom>
+                            <li>HandTailoringBench</li>
+                        </inheritRecipesFrom>
+                    </li>
+                </value>
+            </li>
 
-                <!-- Add recipes from butchers spot to the butchers block -->
-        <li Class="PatchOperationAddModExtension">
-            <xpath>/Defs/ThingDef[defName="DankPyon_ButchersBlock"]</xpath>
-            <value>
-                <li Class="RecipeInheritance.ThingDefExtension">
-                    <inheritRecipesFrom>
-                        <li>ButcherSpot</li>
-                    </inheritRecipesFrom>
-                </li>
-            </value>
-        </li>   
+            <!-- Add recipes from butchers spot to the butchers block -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/ThingDef[defName="DankPyon_ButchersBlock"]</xpath>
+                <value>
+                    <li Class="RecipeInheritance.ThingDefExtension">
+                        <inheritRecipesFrom>
+                            <li>ButcherSpot</li>
+                        </inheritRecipesFrom>
+                    </li>
+                </value>
+            </li>
+            <!-- Anvil as smithy  -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/ThingDef[defName="DankPyon_Anvil"]</xpath>
+                <value>
+                    <li Class="RecipeInheritance.ThingDefExtension">
+                        <inheritRecipesFrom>
+                            <li>FueledSmithy</li>
+                        </inheritRecipesFrom>
+                    </li>
+                </value>
+            </li>
+            <!-- remove the charcoal (AY) and vanilla stoves -->
+            <!-- remove the charcoal (AY) and vanilla smithy -->
+            <li Class="PatchOperationRemove">
+                <xpath>Defs/ThingDef[defName = "AYCharcoalKiln" or defName = "AYCharcoalStove" or
+                    defName = "FueledStove" or defName = "FueledSmithy" or defName =
+                    "AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/designationCategory</xpath>
+            </li>
 
-        <!-- remove the charcoal (AY) and vanilla stoves -->
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="AYCharcoalStove"]/designationCategory</xpath>
-        </li>
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="FueledStove"]/designationCategory</xpath>
-        </li>
-
-        <!-- Anvil as smithy  -->
-        <li Class="PatchOperationAddModExtension">
-            <xpath>/Defs/ThingDef[defName="DankPyon_Anvil"]</xpath>
-            <value>
-                <li Class="RecipeInheritance.ThingDefExtension">
-                    <inheritRecipesFrom>
-                        <li>FueledSmithy</li>
-                    </inheritRecipesFrom>
-                </li>
-            </value>
-        </li>
-        <!-- remove the charcoal (AY) and vanilla smithy -->
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="FueledSmithy"]/designationCategory</xpath>
-        </li>                   
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="AYCharcoalSmithy"]/designationCategory</xpath>
-        </li>     
-    </operations>
+            <li Class="PatchOperationRemove">
+                <xpath>Defs/ThingDef[defName = "AYCharcoalKiln" or defName = "AYCharcoalStove" or
+                    defName = "FueledStove" or defName = "FueledSmithy" or defName =
+                    "AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/researchPrerequisites</xpath>
+            </li>
+            <!-- add smokeleaf to apothecary table -->
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="SmokeleafJoint"]/recipeMaker/recipeUsers</xpath>
+                <value>
+                    <li>AYApothecaryTable</li>
+                </value>
+            </li>
+        </operations>
     </Operation>
 </Patch>

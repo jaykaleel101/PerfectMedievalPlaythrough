@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ProcessorFramework.ProcessDef>
+		<defName>Charcoal</defName>
+		<thingDef>AYCharcoal</thingDef>
+		<ingredientFilter>
+			<categories>
+				<li>DankPyon_RawWood</li>
+			</categories>
+		</ingredientFilter>
+		<processDays>2</processDays> <!-- in days, a day is 60,000 ticks -->
+		<capacityFactor>1.0</capacityFactor>
+		<efficiency>1.5</efficiency>
+		<usesTemperature>false</usesTemperature>
+		<unfueledFactor>0.0</unfueledFactor>
+		<powerUseFactor>1.0</powerUseFactor>
+		<fuelUseFactor>1.0</fuelUseFactor>
+		<color>(255, 255, 255)</color> <!-- 0-255 or 0.0-1.0 -->
+		<customLabel></customLabel>
+		<destroyChance>0.0</destroyChance>
+		<bonusOutputs>
+			<AYWoodAshes>(100.0, 75)</AYWoodAshes>
+		</bonusOutputs>
+	</ProcessorFramework.ProcessDef>
+
+	<ThingDef ParentName="AYBuildingBase">
+		<defName>PMP_CharcoalKilnProcessyr</defName>
+		<label>Reusable Charcoal Kiln</label>
+		<description>A more permanent version of the charcoal kiln made from stone. When filled with
+			wood that will slowly burn with limited air supply to produce charcoal.</description>
+		<graphicData>
+			<texPath>Things/Building/AYCharcoal/AYCharcoalKiln/AYCharcoalKiln</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<blockLight>false</blockLight>
+		<castEdgeShadows>true</castEdgeShadows>
+		<staticSunShadowHeight>0.20</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+		<canOverlapZones>false</canOverlapZones>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToBuild>750</WorkToBuild>
+			<Beauty>-5</Beauty>
+			<Cleanliness>-3</Cleanliness>
+		</statBases>
+		<costStuffCount>75</costStuffCount>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<useHitPoints>true</useHitPoints>
+		<size>(1,1)</size>
+		<designationCategory>Production</designationCategory>
+		<passability>PassThroughOnly</passability>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="ProcessorFramework.CompProperties_Processor">
+				<capacity>100</capacity>
+				<independentProcesses>false</independentProcesses>
+				<parallelProcesses>false</parallelProcesses>
+				<dropIngredients>false</dropIngredients>
+				<showProductIcon>false</showProductIcon>
+				<barOffset>(0.0, 0.25)</barOffset>
+				<barScale>(1.0, 1.0)</barScale>
+				<colorCoded>false</colorCoded>
+				<processes>
+					<li>Charcoal</li>
+				</processes>
+			</li>
+			<li Class="Flecker.CompProperties_Smoker" MayRequire="owlchemist.simplefx.smoke2">
+				<fleckDef>Owl_SmokeHeavy</fleckDef>
+			</li>
+		</comps>
+		<pathCost>75</pathCost>
+		<researchPrerequisites Inherit="false">
+			<li>AYCharcoal</li>
+		</researchPrerequisites>
+	</ThingDef>
+</Defs>

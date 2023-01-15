@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+<HediffDef>
+    <defName>PMP_AleHigh</defName>
+    <label>ale high</label>
+    <labelNoun>a ale high</labelNoun>
+    <description>Drank some ale. We can get to work now.</description>
+    <hediffClass>Hediff_Alcohol</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <isBad>false</isBad>
+    <comps>
+        
+        <li Class="HediffCompProperties_SeverityPerDay">
+            <severityPerDay>-0.75</severityPerDay>
+            <showHoursToRecover>true</showHoursToRecover>
+        </li>
+    </comps>
+    <stages>
+        <li>
+			<restFallFactor>0.85</restFallFactor>
+				<statOffsets>
+                    <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+                    <GeneralLaborSpeed>0.15</GeneralLaborSpeed>
+				</statOffsets>				
+			</li>
+    </stages>
+</HediffDef>
+/</Defs>

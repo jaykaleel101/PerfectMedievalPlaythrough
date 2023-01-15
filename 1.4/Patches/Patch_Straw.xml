@@ -1,42 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-    <Operation Class="PatchOperationSequence">
-    <operations>        
-      <!-- Add straw as ingredient to make kibble, because it just makes sense -->
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/RecipeDef[defName="Make_Kibble"]/ingredients/li[2]/filter/thingDefs</xpath>
-        <value>
-          <li>DankPyon_Straw</li>
-        </value>
-      </li>
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/RecipeDef[defName="Make_Kibble"]/fixedIngredientFilter/thingDefs</xpath>
-        <value>
-          <li>DankPyon_Straw</li>
-        </value>
-      </li>
-      <!-- Add straw from wheat harvest as a by-product, just 1/square to make it not OP -->
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Wheat"]</xpath>
-        <value>
-      		<modExtensions>
-			<li Class="VanillaPlantsExpanded.DualCropExtension">
-				<secondaryOutput>DankPyon_Straw</secondaryOutput>
-				<outPutAmount>1</outPutAmount>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+			<!-- Add straw as ingredient to make kibble -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/RecipeDef[defName="Make_Kibble"]/ingredients/li[2]/filter/thingDefs</xpath>
+				<value>
+					<li>DankPyon_Straw</li>
+				</value>
 			</li>
-            </modExtensions>
-        </value>
-      </li>
-      <!-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood only) -->
-      <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName="VFEM_ArcheryTarget"]/costList</xpath>
-            <value>
-                <costList>
-                <WoodLog>4</WoodLog>
-                <DankPyon_Straw>20</DankPyon_Straw>
-                </costList>
-            </value>
-        </li>
-    </operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/RecipeDef[defName="Make_Kibble"]/fixedIngredientFilter/thingDefs</xpath>
+				<value>
+					<li>DankPyon_Straw</li>
+				</value>
+			</li>
+			<!-- Add straw from wheat harvest as a by-product -->
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="DankPyon_Plant_Wheat"]</xpath>
+				<value>
+					<modExtensions>
+						<li Class="VanillaPlantsExpanded.DualCropExtension">
+							<secondaryOutput>DankPyon_Straw</secondaryOutput>
+							<outPutAmount>1</outPutAmount>
+						</li>
+					</modExtensions>
+				</value>
+			</li>
+			<!-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood only) -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VFEM_ArcheryTarget"]/costList</xpath>
+				<value>
+					<costList>
+						<WoodLog>4</WoodLog>
+						<DankPyon_Straw>20</DankPyon_Straw>
+					</costList>
+				</value>
+			</li>
+			<!-- remove DankPyon_HayRack -->
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName = "DankPyon_HayRack"]/designationCategory</xpath>
+			</li>
+
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName = "DankPyon_HayRack"]/researchPrerequisites</xpath>
+			</li>
+			<!-- remove hay from DankPyon_CraftFlourBulk -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName = "DankPyon_CraftFlourBulk"]/products</xpath>
+				<value>
+					<products>
+						<DankPyon_Flour>10</DankPyon_Flour>
+					</products>
+				</value>
+			</li>
+			<!-- remove hay from DankPyon_CraftFlour -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName = "DankPyon_CraftFlour"]/products</xpath>
+				<value>
+					<products>
+						<DankPyon_Flour>1</DankPyon_Flour>
+					</products>
+				</value>
+			</li>
+			<!-- tall grass yields straw -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "Plant_TallGrass"]/plant/harvestedThingDef/text()</xpath>
+				<value>DankPyon_Straw</value>
+			</li>
+			<!-- straw pile becomes hay pile -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName = "DankPyon_StrawPile"]</xpath>
+				<value>
+					<ThingDef ParentName="DankPyon_StorageBase">
+						<defName>DankPyon_StrawPile</defName>
+						<label>hay pile</label>
+						<description>A pile of hay.</description>
+						<thingClass>Building_Storage</thingClass>
+						<graphicData>
+							<texPath>Storage/StrawPile</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>(2.70,2.70)</drawSize>
+							<drawRotated>false</drawRotated>
+						</graphicData>
+						<size>(2,1)</size>
+						<defaultPlacingRot>South</defaultPlacingRot>
+
+						<costList>
+							<Hay>20</Hay>
+						</costList>
+
+						<stuffCategories Inherit="false" />
+
+						<statBases>
+							<MaxHitPoints>100</MaxHitPoints>
+							<Mass>8</Mass>
+							<WorkToBuild>500</WorkToBuild>
+							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
+						</statBases>
+
+						<building>
+							<maxItemsInCell>4</maxItemsInCell>
+							<fixedStorageSettings Inherit="false">
+								<filter>
+									<thingDefs>
+										<li>Hay</li>
+									</thingDefs>
+								</filter>
+							</fixedStorageSettings>
+							<defaultStorageSettings Inherit="false">
+								<priority>Important</priority>
+								<filter>
+									<thingDefs>
+										<li>Hay</li>
+									</thingDefs>
+								</filter>
+							</defaultStorageSettings>
+						</building>
+					</ThingDef>
+				</value>
+			</li>
+		</operations>
 	</Operation>
 </Patch>

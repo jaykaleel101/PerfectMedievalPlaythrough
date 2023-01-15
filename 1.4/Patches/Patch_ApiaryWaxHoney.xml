@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <!-- The Apiary is now fueled from beeswax instead of meat -->
+            <li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="DankPyon_Apiary"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/categories</xpath>
+                <value>
+                    <thingDefs>
+                        <li>DankPyon_Wax</li>
+                    </thingDefs>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="DankPyon_Apiary"]/comps/li[@Class="CompProperties_Refuelable"]/fuelGizmoLabel</xpath>
+                <value>
+                    <fuelGizmoLabel>wax</fuelGizmoLabel>
+                </value>
+            </li>
+            <!-- Correct some labelling -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/label/text()</xpath>
+                <value>honeycomb</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label/text()</xpath>
+                <value>queen bee</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description/text()</xpath>
+                <value>The matriarch of a bee colony. You can put here in a new apiary and start a new bee colony.</value>
+            </li>            
+            <!-- beeswax versions of candles needs to be refuelled less often vs the tallow versions -->
+            <li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="DankPyon_Candles_Beeswax" or defName="DankPyon_CandleStand_Beeswax"]/comps/li[@Class="CompProperties_Refuelable"]/fuelConsumptionRate/text()</xpath>
+                <value>0.5</value>
+            </li>            
+        </operations>
+    </Operation>
+</Patch>

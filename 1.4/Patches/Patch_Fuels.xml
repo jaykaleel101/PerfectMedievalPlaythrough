@@ -2,7 +2,6 @@
 <Patch>
     <Operation Class="PatchOperationSequence">
     <operations>      
-    <!-- TODO remove smelting wood into coal DankPyon_SmeltingOre_Coal-->
     <!-- for some reason MO messed up all fuelable stuff, so we try to patch it again right here-->
     <!-- first remove timber-->
         <li Class="PatchOperationRemove">
@@ -33,6 +32,62 @@
                 <li>AYCharcoal</li>
             </value>
         </li>
+        <li Class="PatchOperationAdd">
+            <xpath>Defs/ProcessorFramework.ProcessDef[defName="DankPyon_SmeltingOre_Coal"]</xpath>
+            <value>
+                <bonusOutputs>
+                    <AYWoodAshes>(1.0, 100)</AYWoodAshes>
+                </bonusOutputs>
+            </value>
+        </li>        
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/description</xpath>
+            <value>
+                <description>Make 30 Charcoal.</description>
+            </value>
+        </li>
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/ingredients</xpath>
+            <value>
+                <ingredients>
+                    <li>
+                    <filter>
+                        <thingDefs>
+                        <li>WoodLog</li>
+                        <li>DankPyon_DarkWoodLog</li>
+                        <li>DankPyon_ElvenWoodLog</li>
+                        <li>DankPyon_DryadWoodLog</li>
+                        <li>DankPyon_AncientWoodLog</li>
+                        </thingDefs>
+                    </filter>
+                    <count>20</count>
+                    </li>
+                </ingredients>
+            </value>
+        </li>
+        <li Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/fixedIngredientFilter/thingDefs</xpath>
+            <value>
+                <li>DankPyon_DarkWoodLog</li>
+                <li>DankPyon_ElvenWoodLog</li>
+                <li>DankPyon_DryadWoodLog</li>
+                <li>DankPyon_AncientWoodLog</li>
+            </value>
+        </li>
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/products</xpath>
+            <value>
+                <products>
+                    <AYCharcoal>30</AYCharcoal>
+                </products>
+            </value>
+        </li>
+        <li Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/recipeUsers</xpath>
+            <value>
+                <li>DankPyon_Furnace</li>
+            </value>
+        </li>        
     </operations>
     </Operation>
 </Patch>
