@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<RecipeDef>
+		<defName>PMP_BakeTribalBread</defName>
+		<label>bake prehistoric bread</label>
+		<description>Bake prehistoric bread by grinding wheat, mix it with water and put it next to the campfire.</description>
+		<jobString>Baking prehistoric bread.</jobString>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>DankPyon_RawWheat</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<products>
+			<DankPyon_MealBread>1</DankPyon_MealBread>
+		</products>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>PMP_WildBarley</li>
+			</thingDefs>
+			<specialFiltersToDisallow>
+				<li>AllowRotten</li>
+			</specialFiltersToDisallow>
+		</fixedIngredientFilter>
+		<workAmount>400</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<recipeUsers>
+			<li>Campfire</li>
+		</recipeUsers>
+	</RecipeDef>
+
+	<ThingDef ParentName="MealCooked">
+		<defName>PMP_TribalSteak</defName>
+		<label>tribal steak</label>
+		<description>Meat baked on a stone.</description>
+		<graphicData>
+			<texPath>Meal/RoxSteak</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>10</MarketValue>
+			<WorkToMake>1100</WorkToMake>
+			<Nutrition>0.7</Nutrition>
+		</statBases>
+		<ingestible>
+			<preferability>MealAwful</preferability>
+			<optimalityOffsetHumanlikes>18</optimalityOffsetHumanlikes>
+			<optimalityOffsetFeedingAnimals>-30</optimalityOffsetFeedingAnimals>
+		</ingestible>
+		<rotatable>false</rotatable>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>PMP_BakeTribalSteak</defName>
+		<label>bake meat</label>
+		<description>Bake meat on a hot stone.</description>
+		<jobString>Baking meat.</jobString>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>MeatRaw</li>
+					</categories>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<products>
+			<PMP_TribalSteak>1</PMP_TribalSteak>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>MeatRaw</li>
+			</categories>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>MeatRaw</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Meat_Human</li>
+				<li>Meat_Megaspider</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>		
+		<workAmount>300</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<recipeUsers>
+			<li>Campfire</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

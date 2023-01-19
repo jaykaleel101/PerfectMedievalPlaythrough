@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<operations>
+            <!-- why? because beer/wort is made from grains -->
+			<!-- patch ale wort recipe: wheat+spices -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_Make_WortAle"]/description/text()</xpath>
+				<value>Make ale wort by mashing grains and then boiling it with spices.</value>
+			</li>	
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_Make_WortAle"]/ingredients</xpath>
+                <value>
+                    <ingredients>
+                        <li>
+                            <filter>
+                            <thingDefs>
+                                <li>DankPyon_RawWheat</li>
+                            </thingDefs>
+                            </filter>
+                            <count>20</count>
+                        </li>                        
+                        <li>
+                            <filter>
+                            <thingDefs>
+                                <li>DankPyon_Spices</li>
+                            </thingDefs>
+                            </filter>
+                            <count>5</count>
+                        </li>
+                </ingredients>
+                </value>
+			</li>		            
+			<!-- patch vanilla beer wort recipe: wheat+hops -->
+			<!-- patch ale wort recipe: wheat+spices -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="Make_Wort"]/description/text()</xpath>
+				<value>Make wort by mashing grains and then boiling it with hops.</value>
+			</li>	
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="Make_Wort"]/ingredients</xpath>
+                <value>
+                    <ingredients>
+                        <li>
+                            <filter>
+                            <thingDefs>
+                                <li>DankPyon_RawWheat</li>
+                            </thingDefs>
+                            </filter>
+                            <count>20</count>
+                        </li>                        
+                        <li>
+                            <filter>
+                            <thingDefs>
+                                <li>RawHops</li>
+                            </thingDefs>
+                            </filter>
+                            <count>5</count>
+                        </li>
+                </ingredients>
+                </value>
+			</li>		
+		</operations>
+	</Operation>
+</Patch>

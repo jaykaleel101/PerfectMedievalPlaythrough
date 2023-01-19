@@ -12,13 +12,212 @@
 					</li>
 				</value>
 			</li>		
-			<!-- patch Ale to add never blightable to garlic, shallot, onoins -->
+			<!-- add never blightable to onoins -->
 			<li Class="PatchOperationAdd">
-				<xpath>Defs/ThingDef[defName="Plant_AYGarlic" or defName="DankPyon_Plant_Garlic" or defName="DankPyon_Plant_Onions"]/plant</xpath>
+				<xpath>Defs/ThingDef[defName="DankPyon_Plant_Onions"]/plant</xpath>
 				<value>
 					<neverBlightable>true</neverBlightable>
 				</value>
 			</li>		
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
+                <value>Onions. Good base for vegetarian and meat stews. Is immune to blight.</value>
+            </li>			
+			<!-- add never blightable to onoins -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="DankPyon_Plant_Cabbages"]/plant</xpath>
+				<value>
+					<dieFromToxicFallout>false</dieFromToxicFallout>
+				</value>
+			</li>	
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Cabbages"]/description/text()</xpath>
+                <value>Cabbage. Good base for salads and soups. Is immune to toxic fallout.</value>
+            </li>		
+
+            <!-- rename MO garlic to beetroot, so it is different to AY garlic -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/label/text()</xpath>
+                <value>beet</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
+                <value>Raw beet. Can be used to cook, but also to grind sugar.</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/label/text()</xpath>
+                <value>beet plant</value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/description/text()</xpath>
+                <value>Beet. Grows slowly but does not die in winter.</value>
+            </li>
+			<li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/plant/dieIfLeafless/text()</xpath>
+                <value>false</value>
+            </li>
+			<li Class="PatchOperationReplace">
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/plant/growDays/text()</xpath>
+                <value>6</value>
+            </li>
+			
+			<!-- create sugar from raw beet -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CraftSugar"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+						  <filter>
+							<thingDefs>
+							  <li>DankPyon_Sugarcane</li>
+							  <li>DankPyon_RawGarlic</li>
+							</thingDefs>
+						  </filter>
+						  <count>1</count>
+						</li>
+					  </ingredients>
+				</value>
+			</li>	
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CraftSugar"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+						<thingDefs>
+						  <li>DankPyon_Sugarcane</li>
+						  <li>DankPyon_RawGarlic</li>
+						</thingDefs>
+						<specialFiltersToDisallow>
+						  <li>AllowRotten</li>
+						</specialFiltersToDisallow>
+					  </fixedIngredientFilter>
+				</value>
+			</li>			
+
+			<!-- new stew ingredients -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CookMealWeakStew"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+							  </categories>
+							</filter>
+							<count>0.8</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_RawOnions</li>
+								</thingDefs>
+							</filter>
+							<count>0.4</count>
+						  </li>
+					  </ingredients>
+				</value>
+			</li>				
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CookMealWeakStewBulk"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<filter>
+							  <categories>
+								<li>MeatRaw</li>
+							  </categories>
+							</filter>
+							<count>1.6</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_RawOnions</li>
+								</thingDefs>
+							</filter>
+							<count>0.8</count>
+						  </li>
+					  </ingredients>
+				</value>
+			</li>		
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CookMealHeartyStew"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<filter>
+								<categories>
+									<li>MeatRaw</li>
+								  </categories>
+							</filter>
+							<count>0.40</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_RawOnions</li>
+								</thingDefs>
+							</filter>
+							<count>0.36</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>Beer</li>
+								</thingDefs>
+							</filter>
+							<count>0.60</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_Salt</li>
+								</thingDefs>
+							</filter>
+							<count>0.16</count>
+						</li>
+					  </ingredients>
+				</value>
+			</li>				
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="DankPyon_CookMealWeakStewBulk"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<filter>
+								<categories>
+									<li>MeatRaw</li>
+								  </categories>
+							</filter>
+							<count>0.8</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_RawOnions</li>
+								</thingDefs>
+							</filter>
+							<count>0.72</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>Beer</li>
+								</thingDefs>
+							</filter>
+							<count>1.2</count>
+						</li>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_Salt</li>
+								</thingDefs>
+							</filter>
+							<count>0.32</count>
+						</li>
+					  </ingredients>
+				</value>
+			</li>	
 		</operations>
 	</Operation>
 </Patch>

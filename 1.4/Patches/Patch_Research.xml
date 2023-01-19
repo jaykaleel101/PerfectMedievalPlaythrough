@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <!-- Bows are NOT medieval tech! -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="RecurveBow"]/techLevel</xpath>
+                <value>
+                    <techLevel>Neolithic</techLevel>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Greatbow"]/techLevel</xpath>
+                <value>
+                    <techLevel>Neolithic</techLevel>
+                </value>
+            </li>
+
+            <!-- Put wheat in basic agriculture -->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="DankPyon_Plant_Wheat"]/plant/sowResearchPrerequisites</xpath>
+                <value>
+                    <sowResearchPrerequisites>
+                        <li>DankPyon_BasicAgriculture</li>
+                    </sowResearchPrerequisites>
+                </value>
+            </li>
+            <!-- Move plowing and gardenbox from basic to intermediate agriculture -->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/TerrainDef[defName="DankPyon_PlowedSoil"]/researchPrerequisites</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>DankPyon_IntermediateAgriculture</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="DankPyon_GardeningBox"]/researchPrerequisites</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>DankPyon_IntermediateAgriculture</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <!-- Make basic agriculture know for tribal starts -->
+                <li Class="PatchOperationAdd">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_BasicAgriculture"]</xpath>
+                <value>
+                <tags>
+                    <li>TribalStart</li>
+                </tags>
+                </value>
+            </li>
+
+            <!-- Layout Patches -->
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RusticStorage"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>2.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RusticStorage"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>0.55</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RoyalRusticFurniture"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>3.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RoyalRusticFurniture"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>1.10</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RusticFurniture"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>1.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="DankPyon_RusticFurniture"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>1.10</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>3.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Harpsichord"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>3.50</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Harp"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>2.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Harp"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>4.70</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Stonecutting"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>2.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="Stonecutting"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>4.15</researchViewY>
+                </value>
+            </li>
+
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]/researchViewX</xpath>
+                <value>
+                    <researchViewX>1.00</researchViewX>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>Defs/ResearchProjectDef[defName="ComplexFurniture"]/researchViewY</xpath>
+                <value>
+                    <researchViewY>4.70</researchViewY>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+</Patch>

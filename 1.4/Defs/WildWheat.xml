@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Henbane -->
+  <!-- Plant -->
+  <ThingDef ParentName="PlantBase">
+    <defName>PMP_WildBarley</defName>
+    <label>wild barley plant</label>
+    <description>A wild version of domesticated barley. Can be crushed and used to bake prehistoric bread.</description>
+    <graphicData>
+      <texPath>Plants/WheatPlant</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+    <ingestible />    
+    <statBases>
+      <Beauty>1</Beauty>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.3</Nutrition>
+      <Flammability>1.3</Flammability>
+    </statBases>
+    <plant>
+      <harvestedThingDef>DankPyon_RawWheat</harvestedThingDef>
+      <harvestYield>4</harvestYield>
+      <sowMinSkill>5</sowMinSkill>
+      <fertilitySensitivity>0.7</fertilitySensitivity>
+      <growDays>3</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>      
+      <harvestWork>60</harvestWork>
+      <maxMeshCount>9</maxMeshCount>
+      <visualSizeRange>0.7~0.85</visualSizeRange>
+      <topWindExposure>0.1</topWindExposure>
+      <wildClusterRadius>4</wildClusterRadius>
+      <wildClusterWeight>10</wildClusterWeight>
+      <wildOrder>1</wildOrder>      
+      <wildBiomes>
+        <TemperateForest>0.07</TemperateForest>
+        <TemperateSwamp>0.06</TemperateSwamp>
+        <TropicalRainforest>0.04</TropicalRainforest>
+        <TropicalSwamp>0.04</TropicalSwamp>
+        <BorealForest>0.07</BorealForest>
+        <ColdBog>0.05</ColdBog>
+        <AridShrubland>0.05</AridShrubland>
+        <Desert>0.02</Desert>
+        <DankPyon_DarkForest>0.06</DankPyon_DarkForest>
+        <DankPyon_AncientForest>0.07</DankPyon_AncientForest>
+      </wildBiomes>
+      <purpose>Food</purpose>
+      <humanFoodPlant>true</humanFoodPlant>
+    </plant>
+    <modExtensions>
+        <li Class="VanillaPlantsExpanded.DualCropExtension">
+            <secondaryOutput>DankPyon_Straw</secondaryOutput>
+            <outPutAmount>1</outPutAmount>
+        </li>
+    </modExtensions>    
+  </ThingDef>
+</Defs>

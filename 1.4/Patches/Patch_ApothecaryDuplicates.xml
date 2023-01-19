@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-    <Operation Class="PatchOperationSequence">
+    <Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Apothecary (Continued)</li>
+		</mods>
+    <match Class="PatchOperationSequence">
         <operations>
             <!-- Replacing Apothecary tallow in all recipes with MO tallow  -->
             <li Class="PatchOperationReplace">
@@ -69,23 +73,29 @@
                 <name>DankPyon_Salt</name>
             </li>
 
-            <!-- rename MO garlic to beetroot, so it is different to AY garlic -->
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/label/text()</xpath>
-                <value>beet</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
-                <value>Raw beet.</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/label/text()</xpath>
-                <value>beet plant</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/description/text()</xpath>
-                <value>Beet. They are used in stews and soups.</value>
-            </li>
+                    <!-- add apothecary charcoal as fuel -->
+        <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[
+            defName="Campfire" or
+            defName="DankPyon_StoneOven" or
+            defName="DankPyon_RusticCookingTable" or
+            defName="DankPyon_Furnace" or
+            defName="DankPyon_Grill" or
+            defName="DankPyon_WoodBurningStove" or
+            defName="DankPyon_RusticHearth" or
+            defName="DankPyon_WoodBurningStove" or
+            defName="DankPyon_StewPot" or
+            defName="DankPyon_Smoker"
+            ]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+            <value>
+                <li>AYCharcoal</li>
+            </value>
+        </li>
+        <!-- removed: seems OP, but to be playtested -->
+        <li Class="PatchOperationRemove">
+            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/description</xpath>
+        </li>
         </operations>
+        </match>
     </Operation>
 </Patch>

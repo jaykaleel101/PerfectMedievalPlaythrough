@@ -1,46 +1,63 @@
-DONE:
-- The Apiary is now fueled from beeswax instead of meat, because meat did not make sense to me
-- Honeycomb was labelled honey, which was confusing, because you have to turn it into honey, so I just labelled it honeycomb
-- Added straw as ingredient to make kibble, because it just makes sense
-- Added straw from wheat harvest as a by-product
-- Added straw as a drop from tall grass (instead of hay). (this is for tribal starts to get to straw without nescessarly planting weat)
+Vanilla changes:
+- Re-added the vanilla watermill where power generation is replaced by a wood-timber processor
+- Recipe for beer wort is changed into 20xwheat and 5xhops
+Vanilla tribal focussed changes:
+- Added new plant wild wheat, which drops wheat and straw
+- added recipe to cook wheat into some prehistory bread at the campfire.
+- added recipe to grill a piece of meat at the campfire
+- more tribal focus will be added after playtesting/balancing
+
+Medieval overhaul changes:
+- The Apiary is now fueled with beeswax instead of meat
+- Fix Honeycomb label
+- Added MO straw as ingredient to make kibble
+- Added MO straw from wheat harvest as a by-product
 - Removed hay to straw rack.
-- removed hay as product of weat milling.
-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood)
+- removed hay as by-product of weat milling.
+- Dried Meat is now a storage option for raw meat: ratio is 75:75 when drying meat (opposed to 100:9)
+nutrition value is lowered from 0.7 to 0.05(similar to raw meat) so it can be used as an ingredient when cooking. Smoked Meat stayed the same, as it is an edible meal/snack.
+- The furnace can only be fueld with coal and charcoal (wood burning does not reach the heat needed to smelt metals)
+- Added quality to Wine production of medieval overhaul.
+- A queen bee is now a regular queen bee
+- beeswax versions of candles needs to be refuelled less often vs the tallow versions
+- Research summary: wheat is now basic agriculture
+- Recipe for ale wort is changed into 20xwheat and 5xspices
+- in all starting scenarios that used to scatter around timber it is now replaced with wood 
+- tweaked stew recipes, the new basically include meat with onion and meat with onion and beer 
+- MO Garlic is renamed to beet, so it is not to be confused with Apothecary garlic. Beet will later be expanded upon: it will survive winters and can be used as an alternative to sugar cane in cold climates.
+- SirLalaPyon, feel free to include any changes in your mod and let me know so I can remove them :p
+
+Apothecary compatibility patches:
 - Allows apothecary plants to spawn in the dark forest and ancient forest medieval overhaul biomes.
 - MO's smelter coal production now gives ahses aswell.
 - Adds smokeleaf production to the apothecary table.
-- A permanent version of the charcoal kiln is now available
 - Charcoal kiln and the bench recipe for charcoal now converts wood to charcoal at 150% efficiency (1 wood log = 1.5 charcoal)
 - The kiln and bench recipe now use MO wood types
 - Recipes that use Apothecary's tallow now use MO's tallow
-- Dried Meat is now a storage option for raw meat: ratio is 75:75 when drying meat (opposed to 100:9)
-nutrition value is lowered from 0.7 to 0.05(similar to raw meat) so it can be used as an ingredient when cooking.
-Smoked Meat stayed the same, as it is an edible meal/snack.
-On some duplicate stuff, I decided to keep one:
-- The MO Smoker is replaced by the VFEM smoker to make Smoked Meat and Smoked Fish
 - All Apothecary salt is now MO salt
 - All Apothecary tallow is now MO tallow - recipe to make tallow from meat is removed
-- Wine production of medieval overhaul will now have quality added, similar to VFEM wine quality.
+- Apothecary candles can be refuelled by MO tallow
 - Apothecary and vanilla stove and smithy are removed, all bills can be found under the MO counterparts. Again to declutter the amount of benches with almost similar uses.
 - Apothecary charcoal can be used in MO appliances that use fuel, and while I was at it, timber is removed as fuel (raw wood, coal and tar stayed).
-- MO Garlic is renamed to shallot, so it is not to be confused with Apothecary garlic
+
+
+Vanilla factions expanded: medieval patches:
+- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood)
+- The whole wine process from grape plant,grapes,must,wine is de-duplicated
+
+Vanilla fising expanded compatibility patches:
+- Raw fish can be smoked at the VFEM smoker into smoked fish, I re-enabled the VFEM smoker as an alternative to the MO smoker
+
+Windows patches:
+- materialcost is changed to iron for normal windows an steel for reinforced windows 
 
 Some extras inspired by Vanilla cooking and plants expanded:
 - Ale now adds an extra work speed buff
-- Garlic, shallot and onion are resistent to blight - so they can be used to plant between other crops (4tiles wide) to prevent blight spreading.
-- More to be added
+- Onion is resistent to blight - so they can be used to plant between other crops (4tiles wide) to prevent blight spreading.
+- Cabbage is immune to toxic fallout
+- Beet does not die in the winter
 
-TODO:
-Beer de-duping is in progress (two worts and processors)
-VPE ideas:
-Garlic and onion unblightable
-VCE ideas:
-
-
-
-
-Now Reduntant patches:
+Now Reduntant patches that are covered in this mod:
 Medieval Overhaul Apothecary Plants Patch
 https://steamcommunity.com/sharedfiles/filedetails/?id=2579774726
 Vandar's Medieval Overhaul Patches

@@ -60,26 +60,53 @@
                     </li>
                 </value>
             </li>
-            <!-- remove the charcoal (AY) and vanilla stoves -->
-            <!-- remove the charcoal (AY) and vanilla smithy -->
+            <!-- remove the vanilla stoves/smithy -->
             <li Class="PatchOperationRemove">
-                <xpath>Defs/ThingDef[defName = "AYCharcoalKiln" or defName = "AYCharcoalStove" or
-                    defName = "FueledStove" or defName = "FueledSmithy" or defName =
-                    "AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/designationCategory</xpath>
+                <xpath>Defs/ThingDef[defName = "FueledStove" or defName = "FueledSmithy"]/designationCategory</xpath>
             </li>
-
             <li Class="PatchOperationRemove">
-                <xpath>Defs/ThingDef[defName = "AYCharcoalKiln" or defName = "AYCharcoalStove" or
-                    defName = "FueledStove" or defName = "FueledSmithy" or defName =
-                    "AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName = "FueledStove" or defName = "FueledSmithy"]/researchPrerequisites</xpath>
             </li>
-            <!-- add smokeleaf to apothecary table -->
-            <li Class="PatchOperationAdd">
-                <xpath>Defs/ThingDef[defName="SmokeleafJoint"]/recipeMaker/recipeUsers</xpath>
-                <value>
-                    <li>AYApothecaryTable</li>
-                </value>
+            <li Class="PatchOperationFindMod">
+                <mods>
+                    <li>Apothecary (Continued)</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                    <operations>
+                    <!-- remove the charcoal (AY) stoves/smithy -->
+                    <li Class="PatchOperationRemove">
+                        <xpath>Defs/ThingDef[defName="AYCharcoalStove" or defName="AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/designationCategory</xpath>
+                    </li>
+                    <li Class="PatchOperationRemove">
+                        <xpath>Defs/ThingDef[defName="AYCharcoalStove" or defName="AYCharcoalSmithy" or defName="AYCharcoalCrematorium"]/researchPrerequisites</xpath>
+                    </li>
+                    <!-- add smokeleaf to apothecary table -->
+                    <li Class="PatchOperationAdd">
+                        <xpath>Defs/ThingDef[defName="SmokeleafJoint"]/recipeMaker/recipeUsers</xpath>
+                        <value>
+                            <li>AYApothecaryTable</li>
+                        </value>
+                    </li>
+                    <!-- change furnace fuel to coal and charcoal -->
+                    <li Class="PatchOperationReplace">
+                        <xpath>
+                            Defs/ThingDef[defName="DankPyon_Furnace"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter</xpath>
+                        <value>
+                            <fuelFilter>
+                                <thingDefs>
+                                    <li>AYCharcoal</li>
+                                    <li>DankPyon_Coal</li>
+                                </thingDefs>
+                            </fuelFilter>
+                        </value>
+                    </li>
+                    </operations>
+                </match>
             </li>
+        <!--
+        <li Class="PatchOperationRemove">
+            <xpath>Defs/ProcessorFramework.ProcessDef[defName="DankPyon_SmeltingOre_Coal"]</xpath>
+        </li>        -->            
         </operations>
     </Operation>
 </Patch>

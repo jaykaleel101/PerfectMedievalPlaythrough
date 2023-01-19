@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-	<Operation Class="PatchOperationSequence">
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Medieval</li>
+		</mods>
+    <match Class="PatchOperationSequence">
 		<operations>
 			<!-- Remove VFEM grape and Wine making and add quality to MO wine -->
 			<!-- remove VFEM_Make_Must-->
@@ -14,26 +18,24 @@
 			</li>
 			<!-- remove process DankPyon_MustIntoWine -->
 			<li Class="PatchOperationRemove">
-				<xpath>
-					Defs/ThingDef[defName="BarrelProcessor"]/comps/li[1]/processes/li[text()="DankPyon_MustIntoWine"]</xpath>
+				<xpath>Defs/ThingDef[defName="BarrelProcessor"]/comps/li[1]/processes/li[text()="DankPyon_MustIntoWine"]</xpath>
 			</li>
 
 
 			<!-- just change the processor VFE_Wine  to accept  DankPyon_MustWine and return
 			DankPyon_Wine-->
 			<li Class="PatchOperationReplace">
-				<xpath>Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/thingDef</xpath>
-				<value>
-					<thingDef>DankPyon_Wine</thingDef>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>
-					Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/ingredientFilter/thingDefs</xpath>
+				<xpath>Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/ingredientFilter/thingDefs</xpath>
 				<value>
 					<thingDefs>
 						<li>DankPyon_MustWine</li>
 					</thingDefs>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ProcessorFramework.ProcessDef[defName="VFE_Wine"]/thingDef</xpath>
+				<value>
+					<thingDef>DankPyon_Wine</thingDef>
 				</value>
 			</li>
 			<!-- patch DankPyon_Wine to have quality -->
@@ -46,8 +48,9 @@
 				</value>
 			</li>
 
-			<!-- Replace MO smoker with VFEM smoker, because it can already smoke fish as well -->
-			<!-- Hide MO smoker -->
+			<!-- Replace MO smoker with VFEM smoker, because it can already smoke fish as well
+			and I could not get the MO smoker to work for some reason -->
+			 <!-- Hide MO smoker  -->
 			<li Class="PatchOperationRemove">
 				<xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/designationCategory</xpath>
 			</li>
@@ -70,6 +73,18 @@
 					</researchPrerequisites>
 				</value>
 			</li>
+			
+			<!-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood only) -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="VFEM_ArcheryTarget"]/costList</xpath>
+				<value>
+					<costList>
+						<WoodLog>4</WoodLog>
+						<DankPyon_Straw>20</DankPyon_Straw>
+					</costList>
+				</value>
+			</li>
 		</operations>
+		</match>
 	</Operation>
 </Patch>

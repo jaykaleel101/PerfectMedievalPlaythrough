@@ -26,17 +26,7 @@
 						</li>
 					</modExtensions>
 				</value>
-			</li>
-			<!-- VFEM Archery Target is now made from 20 straw and 4 wood (used to be 20 wood only) -->
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="VFEM_ArcheryTarget"]/costList</xpath>
-				<value>
-					<costList>
-						<WoodLog>4</WoodLog>
-						<DankPyon_Straw>20</DankPyon_Straw>
-					</costList>
-				</value>
-			</li>
+			</li>  
 			<!-- remove DankPyon_HayRack -->
 			<li Class="PatchOperationRemove">
 				<xpath>Defs/ThingDef[defName = "DankPyon_HayRack"]/designationCategory</xpath>
@@ -61,63 +51,6 @@
 					<products>
 						<DankPyon_Flour>1</DankPyon_Flour>
 					</products>
-				</value>
-			</li>
-			<!-- tall grass yields straw -->
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName = "Plant_TallGrass"]/plant/harvestedThingDef/text()</xpath>
-				<value>DankPyon_Straw</value>
-			</li>
-			<!-- straw pile becomes hay pile -->
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName = "DankPyon_StrawPile"]</xpath>
-				<value>
-					<ThingDef ParentName="DankPyon_StorageBase">
-						<defName>DankPyon_StrawPile</defName>
-						<label>hay pile</label>
-						<description>A pile of hay.</description>
-						<thingClass>Building_Storage</thingClass>
-						<graphicData>
-							<texPath>Storage/StrawPile</texPath>
-							<graphicClass>Graphic_Single</graphicClass>
-							<drawSize>(2.70,2.70)</drawSize>
-							<drawRotated>false</drawRotated>
-						</graphicData>
-						<size>(2,1)</size>
-						<defaultPlacingRot>South</defaultPlacingRot>
-
-						<costList>
-							<Hay>20</Hay>
-						</costList>
-
-						<stuffCategories Inherit="false" />
-
-						<statBases>
-							<MaxHitPoints>100</MaxHitPoints>
-							<Mass>8</Mass>
-							<WorkToBuild>500</WorkToBuild>
-							<StyleDominance MayRequire="Ludeon.RimWorld.Ideology">5</StyleDominance>
-						</statBases>
-
-						<building>
-							<maxItemsInCell>4</maxItemsInCell>
-							<fixedStorageSettings Inherit="false">
-								<filter>
-									<thingDefs>
-										<li>Hay</li>
-									</thingDefs>
-								</filter>
-							</fixedStorageSettings>
-							<defaultStorageSettings Inherit="false">
-								<priority>Important</priority>
-								<filter>
-									<thingDefs>
-										<li>Hay</li>
-									</thingDefs>
-								</filter>
-							</defaultStorageSettings>
-						</building>
-					</ThingDef>
 				</value>
 			</li>
 		</operations>
