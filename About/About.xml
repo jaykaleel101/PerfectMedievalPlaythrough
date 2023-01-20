@@ -25,5 +25,7 @@
     <loadBefore>
         <li>Ogam.Rimedieval</li>
     </loadBefore>    
-	<description>Fixes up a nice blend of Medieval Overhaul and few other mods for a smooth medieval playthrough.</description>
+	<description>Fixes up a nice blend of Medieval Overhaul and few other mods and tweaks for a smooth medieval playthrough.
+		Works nicely with Vanilla Expanded Factions Medieval, VE Fishing, Apothecary (Continued), ...
+	</description>
 </ModMetaData>

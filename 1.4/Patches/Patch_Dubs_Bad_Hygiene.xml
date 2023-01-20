@@ -1,0 +1,27 @@
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+			<li>Dubs Bad Hygiene</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+				<li Class="PatchOperationSetName">
+                    <xpath>Defs/ThingDef[defName="BiosolidsComposter" or defName="BurnPit"]/costList/Steel</xpath>
+                    <name>DankPyon_IronIngot</name>
+                </li>
+				<li Class="PatchOperationReplace">
+                    <xpath>Defs/ResearchProjectDef[defName="Plumbing" or defName="SwimmingPools" or defName="SepticTanks"]/techLevel</xpath>
+					<value>
+						<techLevel>Industrial</techLevel>
+					</value>
+                </li>
+				<li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="DankPyon_BarrelWater"]/designationCategory</xpath>
+					<value>
+						<designationCategory>Hygiene</designationCategory>
+					</value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

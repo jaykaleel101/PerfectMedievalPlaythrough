@@ -51,6 +51,9 @@ Vanilla fising expanded compatibility patches:
 Windows patches:
 - materialcost is changed to iron for normal windows an steel for reinforced windows 
 
+Dubs Bad Hygiene patches:
+-Changes the techlevel of the researches Plumbing, SwimmingPools and SepticTanks to industrial.
+
 Some extras inspired by Vanilla cooking and plants expanded:
 - Ale now adds an extra work speed buff
 - Onion is resistent to blight - so they can be used to plant between other crops (4tiles wide) to prevent blight spreading.
