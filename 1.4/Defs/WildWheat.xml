@@ -4,8 +4,8 @@
   <!-- Plant -->
   <ThingDef ParentName="PlantBase">
     <defName>PMP_WildBarley</defName>
-    <label>wild barley plant</label>
-    <description>A wild version of domesticated barley. Can be crushed and used to bake prehistoric bread.</description>
+    <label>wild wheat plant</label>
+    <description>A wild version of domesticated wheat. Can be crushed and used to bake prehistoric bread.</description>
     <graphicData>
       <texPath>Plants/WheatPlant</texPath>
       <graphicClass>Graphic_Random</graphicClass>
