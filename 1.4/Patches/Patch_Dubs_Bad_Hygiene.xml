@@ -10,7 +10,7 @@
                     <name>DankPyon_IronIngot</name>
                 </li>
 				<li Class="PatchOperationReplace">
-                    <xpath>Defs/ResearchProjectDef[defName="Plumbing" or defName="SwimmingPools" or defName="SepticTanks"]/techLevel</xpath>
+                    <xpath>Defs/ResearchProjectDef[defName="SepticTanks"]/techLevel</xpath>
 					<value>
 						<techLevel>Industrial</techLevel>
 					</value>
