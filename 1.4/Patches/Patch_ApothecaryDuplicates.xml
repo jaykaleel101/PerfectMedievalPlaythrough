@@ -95,6 +95,15 @@
         <li Class="PatchOperationRemove">
             <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/description</xpath>
         </li>
+        <!-- make clear the difference between two types of garlic -->
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="Plant_AYGarlic"]/label/text()</xpath>
+            <value>Wild garlic</value>
+        </li>     
+        <li Class="PatchOperationReplace">
+            <xpath>Defs/ThingDef[defName="AYGarlicBulb"]/label/text()</xpath>
+            <value>Wild garlic bulbs</value>
+        </li>                 
         </operations>
         </match>
     </Operation>

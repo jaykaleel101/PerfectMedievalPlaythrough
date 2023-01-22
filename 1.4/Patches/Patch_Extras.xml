@@ -20,7 +20,7 @@
 				</value>
 			</li>		
             <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
+                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Onions"]/description/text()</xpath>
                 <value>Onions. Good base for vegetarian and meat stews. Is immune to blight.</value>
             </li>			
 			<!-- add never blightable to onoins -->
@@ -34,64 +34,6 @@
                 <xpath>Defs/ThingDef[defName="DankPyon_Plant_Cabbages"]/description/text()</xpath>
                 <value>Cabbage. Good base for salads and soups. Is immune to toxic fallout.</value>
             </li>		
-
-            <!-- rename MO garlic to beetroot, so it is different to AY garlic -->
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/label/text()</xpath>
-                <value>beet</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_RawGarlic"]/description/text()</xpath>
-                <value>Raw beet. Can be used to cook, but also to grind sugar.</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/label/text()</xpath>
-                <value>beet plant</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/description/text()</xpath>
-                <value>Beet. Grows slowly but does not die in winter.</value>
-            </li>
-			<li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/plant/dieIfLeafless/text()</xpath>
-                <value>false</value>
-            </li>
-			<li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_Plant_Garlic"]/plant/growDays/text()</xpath>
-                <value>6</value>
-            </li>
-			
-			<!-- create sugar from raw beet -->
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/RecipeDef[defName="DankPyon_CraftSugar"]/ingredients</xpath>
-				<value>
-					<ingredients>
-						<li>
-						  <filter>
-							<thingDefs>
-							  <li>DankPyon_Sugarcane</li>
-							  <li>DankPyon_RawGarlic</li>
-							</thingDefs>
-						  </filter>
-						  <count>1</count>
-						</li>
-					  </ingredients>
-				</value>
-			</li>	
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/RecipeDef[defName="DankPyon_CraftSugar"]/fixedIngredientFilter</xpath>
-				<value>
-					<fixedIngredientFilter>
-						<thingDefs>
-						  <li>DankPyon_Sugarcane</li>
-						  <li>DankPyon_RawGarlic</li>
-						</thingDefs>
-						<specialFiltersToDisallow>
-						  <li>AllowRotten</li>
-						</specialFiltersToDisallow>
-					  </fixedIngredientFilter>
-				</value>
-			</li>			
 
 			<!-- new stew ingredients -->
 			<li Class="PatchOperationReplace">

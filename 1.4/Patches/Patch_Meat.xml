@@ -34,6 +34,31 @@
         </value>
       </li>
 
+      <!-- syr ones -->
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ProcessorFramework.ProcessDef[defName ="DankPyon_DriedMeatProcess"]/efficiency/text()</xpath>
+        <value>1.0</value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ProcessorFramework.ProcessDef[defName ="DankPyon_DriedMeatProcess"]/temperatureIdeal/text()</xpath>
+        <value>-99.0~99.0</value>
+      </li>     
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ProcessorFramework.ProcessDef[defName ="DankPyon_DriedMeatProcess"]/windFactor/text()</xpath>
+        <value>0.75~1.25</value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ProcessorFramework.ProcessDef[defName ="DankPyon_DriedMeatProcess"]/sunFactor/text()</xpath>
+        <value>0.75~1.0</value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ProcessorFramework.ProcessDef[defName ="DankPyon_DriedMeatProcess"]/ingredientFilter/disallowedThingDefs</xpath>
+        <value>
+          <li>DankPyon_SmokedMeat</li>
+          <li>DankPyon_Sausages</li>
+        </value>
+      </li>
+
       <li Class="PatchOperationReplace">
         <xpath>Defs/ThingDef[defName ="DankPyon_DriedMeat"]</xpath>
         <value>

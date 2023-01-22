@@ -16,6 +16,7 @@ Medieval overhaul changes:
 - removed hay as by-product of weat milling.
 - Dried Meat is now a storage option for raw meat: ratio is 75:75 when drying meat (opposed to 100:9)
 nutrition value is lowered from 0.7 to 0.05(similar to raw meat) so it can be used as an ingredient when cooking. Smoked Meat stayed the same, as it is an edible meal/snack.
+- The meat drying rack is now a processor that accepts multiple batches of meat, and the drying speed is also influenced somewhat by the weather.
 - The furnace can only be fueld with coal and charcoal (wood burning does not reach the heat needed to smelt metals)
 - Added quality to Wine production of medieval overhaul.
 - A queen bee is now a regular queen bee
@@ -24,7 +25,6 @@ nutrition value is lowered from 0.7 to 0.05(similar to raw meat) so it can be us
 - Recipe for ale wort is changed into 20xwheat and 5xspices
 - in all starting scenarios that used to scatter around timber it is now replaced with wood 
 - tweaked stew recipes, the new basically include meat with onion and meat with onion and beer 
-- MO Garlic is renamed to beet, so it is not to be confused with Apothecary garlic. Beet will later be expanded upon: it will survive winters and can be used as an alternative to sugar cane in cold climates.
 - SirLalaPyon, feel free to include any changes in your mod and let me know so I can remove them :p
 
 Apothecary compatibility patches:
@@ -39,6 +39,7 @@ Apothecary compatibility patches:
 - Apothecary candles can be refuelled by MO tallow
 - Apothecary and vanilla stove and smithy are removed, all bills can be found under the MO counterparts. Again to declutter the amount of benches with almost similar uses.
 - Apothecary charcoal can be used in MO appliances that use fuel, and while I was at it, timber is removed as fuel (raw wood, coal and tar stayed).
+- MO garlic is now called Wild garlic, to not confuse it with MO garlic
 
 
 Vanilla factions expanded: medieval patches:
