@@ -39,7 +39,7 @@ Apothecary compatibility patches:
 - Apothecary candles can be refuelled by MO tallow
 - Apothecary and vanilla stove and smithy are removed, all bills can be found under the MO counterparts. Again to declutter the amount of benches with almost similar uses.
 - Apothecary charcoal can be used in MO appliances that use fuel, and while I was at it, timber is removed as fuel (raw wood, coal and tar stayed).
-- MO garlic is now called Wild garlic, to not confuse it with MO garlic
+- MO garlic is now called Medicinal garlic, to not confuse it with MO garlic
 
 
 Vanilla factions expanded: medieval patches:
@@ -54,6 +54,9 @@ Windows patches:
 
 Dubs Bad Hygiene patches:
 -Changes the techlevel of the researches Plumbing, SwimmingPools and SepticTanks to industrial.
+
+Adobe Abode patch:
+replace steel with iron for the mixing table
 
 Some extras inspired by Vanilla cooking and plants expanded:
 - Ale now adds an extra work speed buff
