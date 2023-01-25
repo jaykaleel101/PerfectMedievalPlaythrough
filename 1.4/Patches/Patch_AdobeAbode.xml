@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+			<li>Adobe Abode</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+				<li Class="PatchOperationSetName">
+                    <xpath>Defs/ThingDef[defName="JKN_AdobeMixingTable"]/costList/Steel</xpath>
+                    <name>DankPyon_IronIngot</name>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
