@@ -98,11 +98,11 @@
         <!-- make clear the difference between two types of garlic -->
         <li Class="PatchOperationReplace">
             <xpath>Defs/ThingDef[defName="Plant_AYGarlic"]/label/text()</xpath>
-            <value>Wild garlic</value>
+            <value>Medicinal garlic</value>
         </li>     
         <li Class="PatchOperationReplace">
             <xpath>Defs/ThingDef[defName="AYGarlicBulb"]/label/text()</xpath>
-            <value>Wild garlic bulbs</value>
+            <value>Medicinal garlic bulbs</value>
         </li>                 
         </operations>
         </match>
