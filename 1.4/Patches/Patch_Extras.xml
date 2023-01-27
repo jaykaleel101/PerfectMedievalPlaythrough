@@ -2,6 +2,27 @@
 <Patch>
 	<Operation Class="PatchOperationSequence">
 		<operations>
+			<!-- patch Fur bed to add hypothermia healing -->
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="DankPyon_BedFur"]/comps</xpath>
+				<value>
+					<li Class="PMP.CompProperties_CureHypothermia" />
+				</value>
+			</li>			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="DankPyon_BedFur"]/description/text()</xpath>
+				<value>A cozy bed made from pieces of soft and comfy fur. The warmth of this bed counters hypothermia.</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="DankPyon_BedFurDouble"]/comps</xpath>
+				<value>
+					<li Class="PMP.CompProperties_CureHypothermia" />
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="DankPyon_BedFurDouble"]/description/text()</xpath>
+				<value>A cozy double-bed made from pieces of soft and comfy fur. The warmth of this bed counters hypothermia.</value>
+			</li>
 			<!-- patch Ale to add to ale high, increases work speed -->
 			<li Class="PatchOperationAdd">
 				<xpath>Defs/ThingDef[defName="DankPyon_Ale"]/ingestible/outcomeDoers</xpath>

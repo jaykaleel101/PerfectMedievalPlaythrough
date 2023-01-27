@@ -48,16 +48,7 @@
 				</value>
 			</li>
 
-			<!-- Replace MO smoker with VFEM smoker, because it can already smoke fish as well
-			and I could not get the MO smoker to work for some reason -->
-			 <!-- Hide MO smoker  -->
-			<li Class="PatchOperationRemove">
-				<xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/designationCategory</xpath>
-			</li>
-			<li Class="PatchOperationRemove">
-				<xpath>Defs/ThingDef[defName="DankPyon_Smoker"]/researchPrerequisites</xpath>
-			</li>
-			<!-- Show VFEM smoker -->
+			<!-- Show VFEM smoker, because it can smoke fish -->
 			<li Class="PatchOperationAdd">
 				<xpath>Defs/ThingDef[defName="VFEM_MeatSmoker"]</xpath>
 				<value>

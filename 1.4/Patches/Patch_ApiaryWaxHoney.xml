@@ -2,36 +2,67 @@
 <Patch>
     <Operation Class="PatchOperationSequence">
         <operations>
-            <!-- The Apiary is now fueled from beeswax instead of meat -->
             <li Class="PatchOperationReplace">
-                <xpath>
-                    Defs/ThingDef[defName="DankPyon_Apiary"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/categories</xpath>
+                <xpath>Defs/ThingDef[defName="DankPyon_Apiary"]</xpath>
                 <value>
-                    <thingDefs>
-                        <li>DankPyon_Wax</li>
-                    </thingDefs>
+                    <ThingDef ParentName="BuildingBase">
+                        <defName>DankPyon_Apiary</defName>
+                        <thingClass>PMP.Apiary</thingClass>
+                        <label>apiary</label>
+                        <tickerType>Rare</tickerType>
+                        <description>A wooden box-like structure with a series of shelves, lattices, and chambers. When placed near flowers or fruit trees the apiary will naturally attract wild bees which will make it their new home. Over time these bees will produce honey which can be harvested and eaten directly, or later fermented into mead.</description>
+                        <graphicData>
+                          <texPath>Production/Apiary</texPath>
+                          <graphicClass>Graphic_Single</graphicClass>
+                          <drawSize>(2,2)</drawSize>
+                          <shadowData>
+                            <volume>(1, 1, 1)</volume>
+                            <offset>(0,0,0)</offset>
+                          </shadowData>
+                        </graphicData>
+                        <size>(1,1)</size>
+                        <minifiedDef>MinifiedThing</minifiedDef>
+                        <thingCategories>
+                          <li>BuildingsMisc</li>
+                        </thingCategories>
+                        <rotatable>false</rotatable>
+                        <altitudeLayer>Building</altitudeLayer>
+                        <passability>Impassable</passability>
+                        <castEdgeShadows>false</castEdgeShadows>
+                        <fillPercent>1.0</fillPercent>
+                        <designationCategory>Misc</designationCategory>
+                        <canOverlapZones>false</canOverlapZones>
+                        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+                        <statBases>
+                          <MaxHitPoints>100</MaxHitPoints>
+                          <WorkToBuild>3000</WorkToBuild>
+                          <Flammability>1</Flammability>
+                          <Beauty>0.5</Beauty>
+                          <Mass>20</Mass>
+                        </statBases>
+                        <stuffCategories>
+                                <li>Woody</li>
+                        </stuffCategories>
+                        <costStuffCount>60</costStuffCount>
+                        <holdsRoof>false</holdsRoof>
+                        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+                        <uiIconScale>0.6</uiIconScale>
+                        <specialDisplayRadius>9.9</specialDisplayRadius>
+                        <researchPrerequisites>
+                          <li>DankPyon_RusticFurniture</li>
+                        </researchPrerequisites>
+                        <placeWorkers>
+                          <li>PMP.Placeworker_Apiary</li>
+                        </placeWorkers>
+                      </ThingDef>
                 </value>
             </li>
-            <li Class="PatchOperationReplace">
-                <xpath>
-                    Defs/ThingDef[defName="DankPyon_Apiary"]/comps/li[@Class="CompProperties_Refuelable"]/fuelGizmoLabel</xpath>
-                <value>
-                    <fuelGizmoLabel>wax</fuelGizmoLabel>
-                </value>
-            </li>
+
             <!-- Correct some labelling -->
             <li Class="PatchOperationReplace">
                 <xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/label/text()</xpath>
                 <value>honeycomb</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label/text()</xpath>
-                <value>queen bee</value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description/text()</xpath>
-                <value>The matriarch of a bee colony. You can put here in a new apiary and start a new bee colony.</value>
-            </li>            
+            </li>      
             <!-- beeswax versions of candles needs to be refuelled less often vs the tallow versions -->
             <li Class="PatchOperationReplace">
                 <xpath>

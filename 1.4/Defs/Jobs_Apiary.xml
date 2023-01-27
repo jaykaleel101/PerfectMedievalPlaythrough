@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+      <!-- ============= TakeHoneyOutOfApiary ============= -->
+
+      <WorkGiverDef>
+        <defName>PMP_TakeHoneyOutOfApiary</defName>
+        <label>take honey out of apiary</label>
+        <giverClass>PMP.WorkGiver_TakeHoneyOutOfApiary</giverClass>
+        <workType>Handling</workType>
+        <verb>take honey</verb>
+        <gerund>taking honey from</gerund>
+        <priorityInType>20</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+
+  <JobDef>
+    <defName>PMP_TakeHoneyOutOfApiary</defName>
+    <driverClass>PMP.JobDriver_TakeHoneyOutOfApiary</driverClass>
+    <reportString>taking honey out of TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  
+    <!-- ============= TendToTheApiary ============= -->
+
+    <WorkGiverDef>
+      <defName>PMP_endToTheApiary</defName>
+      <label>tend to the apiary</label>
+      <giverClass>PMP.WorkGiver_TendToApiary</giverClass>
+      <workType>Handling</workType>
+      <verb>tend apiary</verb>
+      <gerund>tend to</gerund>
+      <priorityInType>20</priorityInType>
+      <requiredCapacities>
+          <li>Manipulation</li>
+      </requiredCapacities>
+  </WorkGiverDef>
+
+  <JobDef>
+    <defName>PMP_TendToApiary</defName>
+    <driverClass>PMP.JobDriver_TendToApiary</driverClass>
+    <reportString>tending to TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+    <!-- Hypothermia response - go to fur bed -->
+    <ThinkTreeDef>
+      <defName>PMP_HypothermiaResponse</defName>
+      <insertTag>Humanlike_PreMain</insertTag>
+      <insertPriority>99</insertPriority>
+      <thinkRoot Class="PMP.ThinkNode_HypothermiaResponse">
+        <subNodes>
+          <li Class="ThinkNode_Priority">
+            <subNodes>
+              <li Class="PMP.JobGiver_HypothermiaResponse" />
+            </subNodes>
+          </li>
+        </subNodes>
+      </thinkRoot>
+    </ThinkTreeDef>
+  
+    <JobDef>
+      <defName>PMP_HypothermiaResponse</defName>
+      <driverClass>PMP.JobDriver_HypothermiaResponse</driverClass>
+      <reportString>recovering from hypothermia.</reportString>
+      <casualInterruptible>true</casualInterruptible>
+      <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    </JobDef>
+</Defs>

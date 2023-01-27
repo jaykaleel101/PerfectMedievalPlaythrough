@@ -8,7 +8,9 @@ Vanilla tribal focussed changes:
 - more tribal focus will be added after playtesting/balancing
 
 Medieval overhaul changes:
-- The Apiary is now fueled with beeswax instead of meat
+- The Apiary mechanic is it just needs flowers or fruit trees around it to work(no meat), and needs to be tended from time to time.
+  Apiary can be uninstalled/installed and has its shadow fixed.
+- MO Fur beds now cure hypothermia.
 - Fix Honeycomb label
 - Added MO straw as ingredient to make kibble
 - Added MO straw from wheat harvest as a by-product
@@ -47,7 +49,7 @@ Vanilla factions expanded: medieval patches:
 - The whole wine process from grape plant,grapes,must,wine is de-duplicated
 
 Vanilla fising expanded compatibility patches:
-- Raw fish can be smoked at the VFEM smoker into smoked fish, I re-enabled the VFEM smoker as an alternative to the MO smoker
+- Raw fish can be smoked at the VFEM smoker into smoked fish, I re-enabled the VFEM smoker, which was hidden when installing MO
 
 Windows patches:
 - materialcost is changed to iron for normal windows an steel for reinforced windows 
@@ -63,6 +65,7 @@ Some extras inspired by Vanilla cooking and plants expanded:
 - Onion is resistent to blight - so they can be used to plant between other crops (4tiles wide) to prevent blight spreading.
 - Cabbage is immune to toxic fallout
 - Beet does not die in the winter
+- Fur beds will cure hypothermia
 
 Now Reduntant patches that are covered in this mod:
 Medieval Overhaul Apothecary Plants Patch
