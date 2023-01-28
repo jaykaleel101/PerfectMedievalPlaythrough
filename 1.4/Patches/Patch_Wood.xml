@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationSequence">
-    <operations>      
-    <!-- remove timber as fuel -->
-        <li Class="PatchOperationRemove">
-            <xpath>Defs/ThingDef[
-            defName="Campfire" or
-            defName="DankPyon_StoneOven" or
-            defName="DankPyon_RusticCookingTable" or
-            defName="DankPyon_Furnace" or
-            defName="DankPyon_Grill" or
-            defName="DankPyon_WoodBurningStove" or
-            defName="DankPyon_RusticHearth" or
-            defName="DankPyon_WoodBurningStove" or
-            defName="DankPyon_StewPot" or
-            defName="DankPyon_Smoker"
-            ]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/categories/li[text() = 'DankPyon_Wood']</xpath>
-        </li>
+        <operations>      
+        <!-- remove timber as fuel -->
+            <li Class="PatchOperationRemove">
+                <xpath>Defs/ThingDef[
+                defName="Campfire" or
+                defName="DankPyon_StoneOven" or
+                defName="DankPyon_RusticCookingTable" or
+                defName="DankPyon_Furnace" or
+                defName="DankPyon_Grill" or
+                defName="DankPyon_WoodBurningStove" or
+                defName="DankPyon_RusticHearth" or
+                defName="DankPyon_WoodBurningStove" or
+                defName="DankPyon_StewPot" or
+                defName="DankPyon_Smoker"
+                ]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/categories/li[text() = 'DankPyon_Wood']</xpath>
+            </li>
 
-        <!-- in all starting scenarios that used to scatter around timber it is now replaced with wood -->
-        <li Class="PatchOperationReplace">
-        <xpath>Defs/ScenarioDef/scenario/parts/li[@Class="ScenPart_ScatterThingsNearPlayerStart" and thingDef [text()= "WoodLog"]]/thingDef/text()</xpath>
-            <value>DankPyon_RawWood</value>
-        </li>
-    </operations>
+            <!-- in all starting scenarios that used to scatter around timber it is now replaced with wood -->
+            <li Class="PatchOperationReplace">
+            <xpath>Defs/ScenarioDef/scenario/parts/li[@Class="ScenPart_ScatterThingsNearPlayerStart" and thingDef [text()= "WoodLog"]]/thingDef/text()</xpath>
+                <value>DankPyon_RawWood</value>
+            </li>
+
+            <!-- change woodmaker druids to produce raw wood -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/GauranlenTreeModeDef[defName="Woodmaker"]/hyperlinks/ThingDef[text()="WoodLog"]</xpath>
+				<value>
+					<ThingDef>DankPyon_RawWood</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Dryad_Woodmaker"]/descriptionHyperlinks/ThingDef[text()="WoodLog"]</xpath>
+				<value>
+					<ThingDef>DankPyon_RawWood</ThingDef>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Dryad_Woodmaker"]/comps//thingToSpawn[text()="WoodLog"]</xpath>
+				<value>
+					<thingToSpawn>DankPyon_RawWood</thingToSpawn>
+				</value>
+			</li>
+        </operations>
     </Operation>
 </Patch>
