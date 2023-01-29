@@ -11,6 +11,7 @@ Medieval overhaul changes:
 - The Apiary mechanic is it just needs flowers or fruit trees around it to work(no meat), and needs to be tended from time to time.
   Apiary can be uninstalled/installed and has its shadow fixed.
 - MO Fur beds now cure hypothermia.
+- added linkables to vanilla and VFE Vikings beds
 - Fix Honeycomb label
 - Added MO straw as ingredient to make kibble
 - Added MO straw from wheat harvest as a by-product
@@ -40,7 +41,7 @@ Apothecary compatibility patches:
 - All Apothecary tallow is now MO tallow - recipe to make tallow from meat is removed
 - Apothecary candles can be refuelled by MO tallow
 - Apothecary and vanilla stove and smithy are removed, all bills can be found under the MO counterparts. Again to declutter the amount of benches with almost similar uses.
-- Apothecary charcoal can be used in MO appliances that use fuel, and while I was at it, timber is removed as fuel (raw wood, coal and tar stayed).
+- Apothecary charcoal can be used in MO appliances and torches that use fuel, and while I was at it, timber is removed as fuel (raw wood, coal and tar stayed).
 - MO garlic is now called Medicinal garlic, to not confuse it with MO garlic
 
 

@@ -23,26 +23,6 @@
             <xpath>Defs/ScenarioDef/scenario/parts/li[@Class="ScenPart_ScatterThingsNearPlayerStart" and thingDef [text()= "WoodLog"]]/thingDef/text()</xpath>
                 <value>DankPyon_RawWood</value>
             </li>
-
-            <!-- change woodmaker druids to produce raw wood -->
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/GauranlenTreeModeDef[defName="Woodmaker"]/hyperlinks/ThingDef[text()="WoodLog"]</xpath>
-				<value>
-					<ThingDef>DankPyon_RawWood</ThingDef>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="Dryad_Woodmaker"]/descriptionHyperlinks/ThingDef[text()="WoodLog"]</xpath>
-				<value>
-					<ThingDef>DankPyon_RawWood</ThingDef>
-				</value>
-			</li>
-			<li Class="PatchOperationReplace">
-				<xpath>Defs/ThingDef[defName="Dryad_Woodmaker"]/comps//thingToSpawn[text()="WoodLog"]</xpath>
-				<value>
-					<thingToSpawn>DankPyon_RawWood</thingToSpawn>
-				</value>
-			</li>
         </operations>
     </Operation>
 </Patch>
