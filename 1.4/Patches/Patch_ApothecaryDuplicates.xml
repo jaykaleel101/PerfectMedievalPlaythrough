@@ -1,110 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
     <Operation Class="PatchOperationFindMod">
-		<mods>
-			<li>Apothecary (Continued)</li>
-		</mods>
-    <match Class="PatchOperationSequence">
-        <operations>
-            <!-- Replacing Apothecary tallow in all recipes with MO tallow  -->
-            <li Class="PatchOperationReplace">
-                <xpath>/Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYTallow"]/li</xpath>
-                <value>
-                    <li>DankPyon_Tallow</li>
-                </value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>/Defs/RecipeDef[defName="MakeAYLavenderSoap" or
-                    defName="MakeBulkAYLavenderSoap"]/fixedIngredientFilter/thingDefs</xpath>
-                <value>
-                    <thingDefs>
+        <mods>
+            <li>Apothecary (Continued)</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!-- Replacing Apothecary tallow in all recipes with MO tallow  -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYTallow"]/li</xpath>
+                    <value>
                         <li>DankPyon_Tallow</li>
-                        <li>AYLavenderOil</li>
-                        <li>AYPotash</li>
-                        <li>AYLimewater</li>
-                    </thingDefs>
-                </value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>/Defs/ThingDef[defName="AYCandle"]/costList/AYTallow</xpath>
-                <value>
-                    <DankPyon_Tallow>20</DankPyon_Tallow>
-                </value>
-            </li>
-            <!-- Remove tallow from meat recipe (Apothecary) since we get it from fat in MO -->
-            <li Class="PatchOperationRemove">
-                <xpath>Defs/RecipeDef[defName = "MakeAYTallow" or defName = "MakeBulkAYTallow"]</xpath>
-            </li>
-            <!-- allow candles of apothecary to be refueled by MO tallow -->
-            <li Class="PatchOperationReplace">
-                <xpath>
-                    Defs/ThingDef[defName="AYCandle"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
-                <value>
-                    <thingDefs>
-                        <li>DankPyon_Tallow</li>
-                    </thingDefs>
-                </value>
-            </li>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/RecipeDef[defName="MakeAYLavenderSoap" or
+                        defName="MakeBulkAYLavenderSoap"]/fixedIngredientFilter/thingDefs</xpath>
+                    <value>
+                        <thingDefs>
+                            <li>DankPyon_Tallow</li>
+                            <li>AYLavenderOil</li>
+                            <li>AYPotash</li>
+                            <li>AYLimewater</li>
+                        </thingDefs>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="AYCandle"]/costList/AYTallow</xpath>
+                    <value>
+                        <DankPyon_Tallow>20</DankPyon_Tallow>
+                    </value>
+                </li>
+                <!-- Remove tallow from meat recipe (Apothecary) since we get it from fat in MO -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName = "MakeAYTallow" or defName = "MakeBulkAYTallow"]</xpath>
+                </li>
+                <!-- allow candles of apothecary to be refueled by MO tallow -->
+                <li Class="PatchOperationReplace">
+                    <xpath>
+                        Defs/ThingDef[defName="AYCandle"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+                    <value>
+                        <thingDefs>
+                            <li>DankPyon_Tallow</li>
+                        </thingDefs>
+                    </value>
+                </li>
 
-            <!-- Replacing Apothecary salt in all recipes with MO Salt  -->
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYSalt"]/li</xpath>
-                <value>
-                    <li>DankPyon_Salt</li>
-                </value>
-            </li>
-            <li Class="PatchOperationReplace">
-                <xpath>Defs/RecipeDef/fixedIngredientFilter/thingDefs[li="AYSalt"]/li</xpath>
-                <value>
-                    <li>DankPyon_Salt</li>
-                </value>
-            </li>
-            <li Class="PatchOperationSetName">
-                <xpath>Defs/ThingDef[defName="AYSalt_Bucket"]/costList/AYSalt</xpath>
-                <name>DankPyon_Salt</name>
-            </li>
-            <li Class="PatchOperationSetName">
-                <xpath>Defs/TerrainDef[defName="TileAYPlasterSalt"]/costList/AYSalt</xpath>
-                <name>DankPyon_Salt</name>
-            </li>
-            <li Class="PatchOperationSetName">
-                <xpath>Defs/RecipeDef[defName="MakeAYSalt" or
-                    defName="MakeAYSaltBlocks"]/products/AYSalt</xpath>
-                <name>DankPyon_Salt</name>
-            </li>
+                <!-- Replacing Apothecary salt in all recipes with MO Salt  -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef/ingredients/li/filter/thingDefs[li="AYSalt"]/li</xpath>
+                    <value>
+                        <li>DankPyon_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/RecipeDef/fixedIngredientFilter/thingDefs[li="AYSalt"]/li</xpath>
+                    <value>
+                        <li>DankPyon_Salt</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <xpath>Defs/ThingDef[defName="AYSalt_Bucket"]/costList/AYSalt</xpath>
+                    <name>DankPyon_Salt</name>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <xpath>Defs/TerrainDef[defName="TileAYPlasterSalt"]/costList/AYSalt</xpath>
+                    <name>DankPyon_Salt</name>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <xpath>Defs/RecipeDef[defName="MakeAYSalt" or
+                        defName="MakeAYSaltBlocks"]/products/AYSalt</xpath>
+                    <name>DankPyon_Salt</name>
+                </li>
 
-                    <!-- add apothecary charcoal as fuel -->
-        <li Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[
-            defName="Campfire" or
-            defName="DankPyon_StoneOven" or
-            defName="DankPyon_RusticCookingTable" or
-            defName="DankPyon_Furnace" or
-            defName="DankPyon_Grill" or
-            defName="DankPyon_WoodBurningStove" or
-            defName="DankPyon_RusticHearth" or
-            defName="DankPyon_WoodBurningStove" or
-            defName="DankPyon_StewPot" or
-            defName="DankPyon_Smoker"
-            ]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
-            <value>
-                <li>AYCharcoal</li>
-            </value>
-        </li>
-        <!-- removed: seems OP, but to be playtested -->
-        <li Class="PatchOperationRemove">
-            <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/description</xpath>
-        </li>
-        <!-- make clear the difference between two types of garlic -->
-        <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName="Plant_AYGarlic"]/label/text()</xpath>
-            <value>Medicinal garlic</value>
-        </li>     
-        <li Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName="AYGarlicBulb"]/label/text()</xpath>
-            <value>Medicinal garlic bulbs</value>
-        </li>                 
-        </operations>
+                <!-- add apothecary charcoal as fuel -->
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs/ThingDef[
+                        defName="Campfire" or
+                        defName="DankPyon_StoneOven" or
+                        defName="DankPyon_RusticCookingTable" or
+                        defName="DankPyon_Furnace" or
+                        defName="DankPyon_Grill" or
+                        defName="DankPyon_WoodBurningStove" or
+                        defName="DankPyon_RusticHearth" or
+                        defName="DankPyon_WoodBurningStove" or
+                        defName="DankPyon_StewPot" or
+                        defName="DankPyon_Smoker" or
+                        defName="DankPyon_RusticTorchLamp" or
+                        defName="DankPyon_WallTorch"
+                        ]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+                    <value>
+                        <li>AYCharcoal</li>
+                    </value>
+                </li>
+                <!-- removed: seems OP, but to be playtested -->
+                <li Class="PatchOperationRemove">
+                    <xpath>Defs/RecipeDef[defName="MakeAYCharcoalFromBenches"]/description</xpath>
+                </li>
+                <!-- make clear the difference between two types of garlic -->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="Plant_AYGarlic"]/label/text()</xpath>
+                    <value>Medicinal garlic</value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="AYGarlicBulb"]/label/text()</xpath>
+                    <value>Medicinal garlic bulbs</value>
+                </li>
+            </operations>
         </match>
     </Operation>
 </Patch>
