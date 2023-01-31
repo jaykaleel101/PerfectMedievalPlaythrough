@@ -31,6 +31,14 @@
                         <DankPyon_Tallow>20</DankPyon_Tallow>
                     </value>
                 </li>
+                <li Class="PatchOperationSetName">
+                    <xpath>Defs/TerrainDef[defName="TileAYPlaster"]/costList/AYTallow</xpath>
+                    <name>DankPyon_Tallow</name>
+                </li>
+                <li Class="PatchOperationSetName">
+                    <xpath>Defs/TerrainDef[defName="TileAYPlasterSalt"]/costList/AYTallow</xpath>
+                    <name>DankPyon_Tallow</name>
+                </li>
                 <!-- Remove tallow from meat recipe (Apothecary) since we get it from fat in MO -->
                 <li Class="PatchOperationRemove">
                     <xpath>Defs/RecipeDef[defName = "MakeAYTallow" or defName = "MakeBulkAYTallow"]</xpath>

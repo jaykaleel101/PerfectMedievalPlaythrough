@@ -22,7 +22,7 @@
 					<modExtensions>
 						<li Class="VanillaPlantsExpanded.DualCropExtension">
 							<secondaryOutput>DankPyon_Straw</secondaryOutput>
-							<outPutAmount>1</outPutAmount>
+							<outPutAmount>30</outPutAmount>
 						</li>
 					</modExtensions>
 				</value>

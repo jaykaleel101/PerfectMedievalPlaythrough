@@ -21,7 +21,7 @@
     </statBases>
     <plant>
       <harvestedThingDef>DankPyon_RawWheat</harvestedThingDef>
-      <harvestYield>4</harvestYield>
+      <harvestYield>15</harvestYield>
       <sowMinSkill>5</sowMinSkill>
       <fertilitySensitivity>0.7</fertilitySensitivity>
       <growDays>3</growDays>
@@ -52,7 +52,7 @@
     <modExtensions>
         <li Class="VanillaPlantsExpanded.DualCropExtension">
             <secondaryOutput>DankPyon_Straw</secondaryOutput>
-            <outPutAmount>1</outPutAmount>
+            <outPutAmount>15</outPutAmount>
         </li>
     </modExtensions>    
   </ThingDef>
