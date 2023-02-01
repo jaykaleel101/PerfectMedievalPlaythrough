@@ -10,7 +10,7 @@ namespace PMP
     public class Apiary : Building
     {
         int ApiaryProgress;
-        int duration = 420000; // 7 days
+        int duration = 300000; // 5 days
         public int tickBeforeTend = 120000; // 2days
         float progressPercentage;
         private int flowerCount;
