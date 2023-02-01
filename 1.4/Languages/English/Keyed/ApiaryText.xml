@@ -4,7 +4,7 @@
     <AResting>The apiary is resting, because the ambient temperature is below 10°C.</AResting>
     <ARestingRain>The apiary is resting, because it is raining.</ARestingRain>
     <AReady>Honey ready.</AReady>
-    <ANeedFlower>The apiary needs {0} more flowers/fruittrees around it for bees to forage.</ANeedFlower>
+    <ANeedFlower>The apiary needs flowers/fruittrees around it for bees to forage. The amount of honey produced is equal to the flowers found, capped at 20.</ANeedFlower>
     <ANeedTIn>The apiary needs tending in {0}.</ANeedTIn>
 
     <APlaceWorker>The apiary needs to be one cell away from any other apiaries.</APlaceWorker>

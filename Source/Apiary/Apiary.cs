@@ -10,12 +10,10 @@ namespace PMP
     public class Apiary : Building
     {
         int ApiaryProgress;
-        int duration = 420000;
-        public int tickBeforeTend = 120000;
-        public float neededFlower;
+        int duration = 420000; // 7 days
+        public int tickBeforeTend = 120000; // 2days
         float progressPercentage;
         private int flowerCount;
-        private int flowerNeeded;
         private List<IntVec3> cellsAround = new List<IntVec3>();
 
         public bool HoneyReady
@@ -42,25 +40,21 @@ namespace PMP
             }
         }
 
-        private bool IsthereFlowerAround;
-
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look<int>(ref this.ApiaryProgress, "ApiaryProgress", 0, false);
             Scribe_Values.Look<int>(ref this.tickBeforeTend, "tickBeforeTend", 0, false);
             Scribe_Values.Look<int>(ref this.flowerCount, "flowerCount", 0, false);
-            Scribe_Values.Look<float>(ref this.neededFlower, "neededFlower", 0, false);
         }
 
         public override void TickRare()
         {
             base.TickRare();
             progressPercentage = (float)this.ApiaryProgress / this.duration;
-            IsthereFlowerAround = FlowerAround();
-            flowerNeeded = FlowerNeeded();
+            countFlowers();
             
-            if (!(this.AmbientTemperature < 10) && !(this.Map.weatherManager.RainRate>0) && IsthereFlowerAround)
+            if (!(this.AmbientTemperature < 10) && !(this.Map.weatherManager.RainRate>0) && flowerCount > 0)
             {
                 this.tickBeforeTend -= 250;
                 if (!this.needTend)
@@ -111,9 +105,9 @@ namespace PMP
             }
             else
             {
-                if (!IsthereFlowerAround)
+                if (flowerCount == 0)
                 {
-                    stringBuilder.AppendLine("ANeedFlower".Translate(flowerNeeded));
+                    stringBuilder.AppendLine("ANeedFlower");
                 }
                 else
                 {
@@ -151,19 +145,12 @@ namespace PMP
                 return null;
             }
             Thing thing = ThingMaker.MakeThing(PMP_DefOf.DankPyon_Honeycomb, null);
-            thing.stackCount = 20;
+            thing.stackCount = flowerCount;
             this.Reset();
             return thing;
         }
 
-        private int FlowerNeeded()
-        {
-            int i = 30; //(cellsAround.Count - 8) / 2;
-            i -= flowerCount;
-            return i;
-        }
-
-        public bool FlowerAround()
+        public void countFlowers()
         {
             flowerCount = 0;
             cellsAround = CellsAroundA(this.TrueCenter().ToIntVec3(), this.Map);
@@ -189,11 +176,10 @@ namespace PMP
                     }
                 }
             }
-            if (flowerCount >= 30)//(int)((cellsAround.Count - 8) / 2))
+            if (flowerCount > 20)
             {
-                return true;
+                flowerCount = 20;
             }
-            return false;
         }
 
         public List<IntVec3> CellsAroundA(IntVec3 pos, Map map)
