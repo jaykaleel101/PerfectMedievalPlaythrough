@@ -93,6 +93,12 @@
             <DankPyon_ComponentBasic>3</DankPyon_ComponentBasic>
           </costList>
         <comps>
+          <li Class="CompProperties_Power">
+            <compClass>PMP.CompWatermill</compClass>
+            <basePowerConsumption>-1100</basePowerConsumption>
+            <transmitsPower>true</transmitsPower>
+            <soundAmbientProducingPower>WaterMill_Ambience</soundAmbientProducingPower>
+          </li>
             <li Class="ProcessorFramework.CompProperties_Processor">
                 <capacity>75</capacity>
                 <independentProcesses>false</independentProcesses>
