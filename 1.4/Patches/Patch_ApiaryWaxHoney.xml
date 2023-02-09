@@ -62,24 +62,13 @@
             <li Class="PatchOperationReplace">
                 <xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/label/text()</xpath>
                 <value>honeycomb</value>
-            </li>      
+            </li>
             <!-- beeswax versions of candles needs to be refuelled less often vs the tallow versions -->
             <li Class="PatchOperationReplace">
                 <xpath>
                     Defs/ThingDef[defName="DankPyon_Candles_Beeswax" or defName="DankPyon_CandleStand_Beeswax"]/comps/li[@Class="CompProperties_Refuelable"]/fuelConsumptionRate/text()</xpath>
                 <value>0.5</value>
-            </li>            
-            <!-- get wax from honeycomb -->
-            <li Class="PatchOperationAdd">
-              <xpath>
-                  Defs/RecipeDef[defName="DankPyon_Extract_Honey"]/products</xpath>
-              <value><DankPyon_Wax>5</DankPyon_Wax></value>
-          </li>       
-          <li Class="PatchOperationAdd">
-            <xpath>
-                Defs/RecipeDef[defName="DankPyon_Extract_HoneyBulk"]/products</xpath>
-            <value><DankPyon_Wax>25</DankPyon_Wax></value>
-        </li>       
+            </li>
         </operations>
     </Operation>
 </Patch>

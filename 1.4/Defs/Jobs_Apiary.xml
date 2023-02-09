@@ -45,28 +45,4 @@
     <reportString>tending to TargetA.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-
-    <!-- Hypothermia response - go to fur bed -->
-    <ThinkTreeDef>
-      <defName>PMP_HypothermiaResponse</defName>
-      <insertTag>Humanlike_PreMain</insertTag>
-      <insertPriority>99</insertPriority>
-      <thinkRoot Class="PMP.ThinkNode_HypothermiaResponse">
-        <subNodes>
-          <li Class="ThinkNode_Priority">
-            <subNodes>
-              <li Class="PMP.JobGiver_HypothermiaResponse" />
-            </subNodes>
-          </li>
-        </subNodes>
-      </thinkRoot>
-    </ThinkTreeDef>
-  
-    <JobDef>
-      <defName>PMP_HypothermiaResponse</defName>
-      <driverClass>PMP.JobDriver_HypothermiaResponse</driverClass>
-      <reportString>recovering from hypothermia.</reportString>
-      <casualInterruptible>true</casualInterruptible>
-      <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
-    </JobDef>
 </Defs>

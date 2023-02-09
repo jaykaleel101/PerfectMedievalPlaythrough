@@ -16,7 +16,6 @@ namespace PMP
         public static ThoughtDef PMP_StingMoodDebuff;
         public static ThingDef DankPyon_Honeycomb;
         public static DamageDef PMP_DamageSting;
-        public static JobDef PMP_HypothermiaResponse;
 
     }
 }
