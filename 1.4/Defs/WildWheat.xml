@@ -45,6 +45,7 @@
         <Desert>0.02</Desert>
         <DankPyon_DarkForest>0.06</DankPyon_DarkForest>
         <DankPyon_AncientForest>0.07</DankPyon_AncientForest>
+				<Tundra>0.0025</Tundra>
       </wildBiomes>
       <purpose>Food</purpose>
       <humanFoodPlant>true</humanFoodPlant>

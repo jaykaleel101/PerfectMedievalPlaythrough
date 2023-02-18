@@ -75,6 +75,47 @@
 					</costList>
 				</value>
 			</li>
+
+			<!-- use wax to make VFEM_Make_Candle + refuel it-->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="VFEM_Make_Candle"]/ingredients</xpath>
+				<value>
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_Wax</li>
+								</thingDefs>
+							</filter>
+							<count>5</count>
+						</li>
+					</ingredients>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/RecipeDef[defName="VFEM_Make_Candle"]/fixedIngredientFilter</xpath>
+				<value>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>DankPyon_Wax</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+				</value>
+			</li>			
+            <li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="VFEM_Candle"]/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+                <value>
+					<thingDefs>
+					<li>DankPyon_Wax</li>
+				</thingDefs>
+			</value>
+            </li>
+			<li Class="PatchOperationReplace">
+                <xpath>
+                    Defs/ThingDef[defName="VFEM_Candle"]/description/text()</xpath>
+                <value>A primitive candle made from wax.</value>
+            </li>
 		</operations>
 		</match>
 	</Operation>

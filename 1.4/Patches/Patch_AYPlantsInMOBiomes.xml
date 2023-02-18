@@ -48,6 +48,27 @@
 					<Plant_AYYarrow>0.03</Plant_AYYarrow>
 				</value>
 			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/BiomeDef[defName = "Tundra"]/wildPlants</xpath>
+				<value>
+					<Plant_AYAloeVera>0.00</Plant_AYAloeVera>
+					<Plant_AYBelladonna>0.01</Plant_AYBelladonna>
+					<Plant_AYCinchona>0.01</Plant_AYCinchona>
+					<Plant_AYGarlic>0.01</Plant_AYGarlic>
+					<Plant_AYGinger>0.01</Plant_AYGinger>
+					<Plant_AYGinkgoBiloba>0.00</Plant_AYGinkgoBiloba>
+					<Plant_AYGinseng>0.00</Plant_AYGinseng>
+					<Plant_AYKale>0.02</Plant_AYKale>
+					<Plant_AYLavender>0.00</Plant_AYLavender>
+					<Plant_AYNettle>0.01</Plant_AYNettle>
+					<Plant_AYStarAnise>0.01</Plant_AYStarAnise>
+					<Plant_AYStJohnsWort>0.02</Plant_AYStJohnsWort>
+					<Plant_AYTurmeric>0.02</Plant_AYTurmeric>
+					<Plant_AYWhiteWillow>0.01</Plant_AYWhiteWillow>
+					<Plant_AYWormwood>0.01</Plant_AYWormwood>
+					<Plant_AYYarrow>0.02</Plant_AYYarrow>
+				</value>
+			</li>			
 		</operations>
 	</match>
 	</Operation>

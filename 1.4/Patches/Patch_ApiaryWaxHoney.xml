@@ -57,12 +57,44 @@
                       </ThingDef>
                 </value>
             </li>
-
+            <!-- get wax from honeycomb -->
+            <li Class="PatchOperationReplace">
+              <xpath>
+                  Defs/RecipeDef[defName="DankPyon_Extract_Honey"]/products</xpath>
+                  <value>
+                  <products>
+                    <DankPyon_Honey>3</DankPyon_Honey>
+                    <DankPyon_Wax>2</DankPyon_Wax>
+                  </products>
+                  </value>
+          </li>       
+          <li Class="PatchOperationReplace">
+            <xpath>
+                Defs/RecipeDef[defName="DankPyon_Extract_HoneyBulk"]/products</xpath>
+                <value>
+                  <products>
+                    <DankPyon_Honey>15</DankPyon_Honey>
+                    <DankPyon_Wax>10</DankPyon_Wax>
+                  </products>
+                  </value>
+        </li>   
             <!-- Correct some labelling -->
             <li Class="PatchOperationReplace">
                 <xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/label/text()</xpath>
                 <value>honeycomb</value>
             </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/description/text()</xpath>
+              <value>A raw honeycomb that you can split into honey and wax at the cooking table.</value>
+          </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="DankPyon_Honey"]/label/text()</xpath>
+              <value>honey</value>
+          </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="DankPyon_Honey"]/description/text()</xpath>
+              <value>A sweet and viscous liquid substance that can be used as a preservative or fermented into an alcoholic drink.</value>
+          </li>          
             <!-- beeswax versions of candles needs to be refuelled less often vs the tallow versions -->
             <li Class="PatchOperationReplace">
                 <xpath>
